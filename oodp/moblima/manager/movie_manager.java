@@ -40,10 +40,9 @@ public class movie_manager{
         return movieListing;
     }
 
-    public static void updateMovieListing(movie Movie){
+    public static void updateMovieListing(String movie_title, movie Movie){
             int i = 0;
             String movie1;
-            String movie_title = Movie.getTitle();
             while (i<=9){
                 movie1 = movieListing[i].getTitle();
                 if (movie1.compareTo(movie_title) == 0){

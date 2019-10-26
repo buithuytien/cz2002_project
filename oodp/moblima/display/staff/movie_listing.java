@@ -62,20 +62,21 @@ public class movie_listing extends display{
         }
         System.out.println("Enter movie status:");
         String movie_status = sc.next();
-
+        System.out.println("Enter movie type:");
+        String movie_type = sc.next();
         movie Movie = new movie();
         Movie.setTitle(title);
         Movie.setDirector(director);
         Movie.setSynopsis(synopsis);
         Movie.setCast(cast);
         Movie.setMovieStatus(movie_status);
+        Movie.setType(movie_type);
         addMovie(Movie);
         System.out.println("Added movie successfully.");
     }
     
     private void update_movie_list(){
-        String movie_title1,new_movie_title1,synopsis1,direct1,movie_status1;
-        ArrayList<String> cast = new ArrayList<>();
+        String movie_title1,new_movie_title1,synopsis1,direct1,movie_status1,movie_type1;
         System.out.println("Enter movie title you want to update.");
         movie_title1 = sc.next();
         System.out.println("Enter new movie title.");
@@ -101,13 +102,16 @@ public class movie_listing extends display{
         }
         System.out.println("Enter new movie status.");
         movie_status1 = sc.next();
+        System.out.println("Enter new movie type.");
+        movie_type1 = sc.next();
         movie Movie1 = new movie();
-        Movie1.setTitle(movie_title1);
+        Movie1.setTitle(new_movie_title1);
         Movie1.setDirector(direct1);
         Movie1.setSynopsis(synopsis1);
         Movie1.setCast(cast1);
         Movie1.setMovieStatus(movie_status1);
-        updateMovieListing(Movie1);
+        Movie1.setType(movie_type1);
+        updateMovieListing(movie_title1, Movie1);
         System.out.println("Updated movie successfully.");
     }
 }

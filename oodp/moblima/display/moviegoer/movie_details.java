@@ -52,6 +52,7 @@ public class movie_details extends display{
             System.out.println("Overall Rating: NA");
         else
             System.out.println("Overall Rating: " + overall_rating);
+        System.out.println("Movie Type: " + movieListing[choice-1].getType());
         System.out.println("Do you want to add review/rating to this movie? Y/N");
         String choice1 = sc.next();
         String review;

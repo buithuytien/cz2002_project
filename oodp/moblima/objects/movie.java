@@ -13,13 +13,14 @@ public class movie{
     private double overall_rating;
     public movie(){}
 
-    public movie(String title, String director, String synopsis, ArrayList<String> cast, String moviestatus, double overall_rating){
+    public movie(String title, String director, String synopsis, ArrayList<String> cast, String moviestatus, double overall_rating, String movie_type){
         this.title = title;
         this.director = director;
         this.synopsis = synopsis;
         this.cast = cast;
         this.movie_status = moviestatus;
         this.overall_rating = overall_rating;
+        this.movie_type = movie_type;
     }
     public void setTitle(String title){
         this.title = title;
@@ -71,5 +72,11 @@ public class movie{
     }
 
     public double getOverallRating(){return overall_rating;}
+
+    public void setType(String movie_type){
+        this.movie_type = movie_type;
+    }
+
+    public String getType(){return movie_type;}
     
 }
