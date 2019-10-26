@@ -3,6 +3,7 @@ package display;
 import java.util.*;
 
 import display.moviegoer.movie_listing;
+import display.moviegoer.movie_details;
 
 public class display_mg extends display {
         Scanner sc = new Scanner(System.in);
@@ -21,7 +22,9 @@ public class display_mg extends display {
             switch (choice) {
                 case 1:
                     intent(this, new movie_listing());
-                    
+                
+                case 2:
+                    intent(this, new movie_details());
                 case 7:
                     destroy();
                     break;

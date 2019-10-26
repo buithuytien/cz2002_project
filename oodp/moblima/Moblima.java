@@ -8,8 +8,8 @@ public class Moblima extends display {
         System.out.println("1.Moviegoer");
         System.out.println("2.Staff");
         System.out.println("3. Exit");
-
-        int choice = sc.nextInt();
+        int choice;
+        choice = sc.nextInt();
 
         switch(choice) {
             case 1:
