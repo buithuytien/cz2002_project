@@ -3,6 +3,7 @@ package display;
 import java.util.*;
 
 import display.staff.movie_listing;
+import display.staff.showtime_listing;
 
 public class display_staff extends display {
     Scanner sc = new Scanner(System.in);
@@ -45,6 +46,10 @@ public class display_staff extends display {
             case 1:
                 intent(this, new movie_listing());
                 break;
+
+            case 2:
+                intent(this, new showtime_listing());
+    
             case 4:
                 login_status = false;
                 System.out.println("Logged out");

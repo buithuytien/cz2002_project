@@ -3,6 +3,8 @@ package display;
 import java.util.*;
 
 import display.moviegoer.movie_listing;
+import display.moviegoer.seat_availability;
+import display.moviegoer.booking;
 import display.moviegoer.movie_details;
 
 public class display_mg extends display {
@@ -25,6 +27,13 @@ public class display_mg extends display {
                 
                 case 2:
                     intent(this, new movie_details());
+
+                case 3:
+                    intent(this, new seat_availability());
+
+                case 4:
+                    intent(this, new booking());
+                    
                 case 7:
                     destroy();
                     break;
