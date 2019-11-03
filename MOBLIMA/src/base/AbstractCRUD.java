@@ -3,55 +3,89 @@ package base;
 import util.TextDB;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public abstract class AbstractCRUD <T extends AbstractEntity> {
 	protected ArrayList<T> dataList;
-	private Class<T> dataClazz;
+	protected Class<T> dataClazz;
 	
+	public void create(T object) {
+		this.dataList.add(object);
+		this.save();
+	}
 	
-	public void read() throws IOException, Exception {
-		ArrayList<T> rawData = new ArrayList<>();
-		rawData = TextDB.read(getFilePath());
+	protected void read() {
+		ArrayList<String> rawData = new ArrayList<>();
+		try {
+			rawData = TextDB.read(getFilePath());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		for (int i=0; i < rawData.size(); i++) {
-			dataList.add(dataClazz.)
+			String objStr = rawData.get(i);
+			T obj = null;
+			try {
+				obj = this.dataClazz.getDeclaredConstructor(String.class).newInstance(objStr);
+			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			this.dataList.add(obj);
 		}
 	}
 	
-	public void deleteByIndex(int idx) {
-		dataList.remove(idx);
+	protected void deleteByIndex(int idx) {
+		this.dataList.remove(idx);
 	}
 	
 	public void list() {
 		for (int i=0; i<getDataLength(); i++) {
-			System.out.println(dataList.get(i).toString());
+			System.out.println(this.dataList.get(i).toString());
 		}
 	}
 	
-	public void save() throws IOException, Exception{
-		ArrayList saveData = new ArrayList();
+	protected void save(){
+		ArrayList<String> saveData = new ArrayList<>();
+		this.sort();
 		
 		for (int i=0; i<getDataLength(); i++) {
 			saveData.add(this.dataList.get(i).processToDBString());
 		}
 		
-		TextDB.write(getFilePath(), saveData);
+		try {
+			TextDB.write(getFilePath(), saveData);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void sort() {
+	protected void sort() {
 		Collections.sort(this.dataList);
 	}
 	
-	private int getDataLength() {
+	protected int getDataLength() {
 		return this.dataList.size();
 	}
 	
-	private String getFilePath() throws Exception {
-		Method getFilePathMethod = dataClazz.getDeclaredMethod("getFilePath", Class.class);
-		String filePath = (String)getFilePathMethod.invoke(null, dataClazz);
+	protected String getFilePath() throws Exception {
+		Method getFilePathMethod = dataClazz.getDeclaredMethod("getFilePath");
+		String filePath = (String)getFilePathMethod.invoke(null);
 		
 		return filePath;
+	}
+	
+	public int printChoices() {
+		int N = this.getDataLength();
+		for (int i=0; i < N; i++) {
+			System.out.println(i+" : "+this.dataList.get(i).toString());
+		}
+		
+		return N;
 	}
 }

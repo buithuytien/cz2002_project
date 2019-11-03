@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TextDB {
+	public static final String PATH="./db/";
 	public static final String SEPERATOR="|";
 	
 	public static ArrayList read(String filePath) throws IOException {
-		ArrayList data = new ArrayList();
-		Scanner scanner = new Scanner(new FileInputStream(filePath));
+		ArrayList<String> data = new ArrayList();
+		Scanner scanner = new Scanner(new FileInputStream(PATH+filePath));
 		
 		try {
 			while (scanner.hasNextLine()) {
@@ -26,7 +27,7 @@ public class TextDB {
 	}
 	
 	public static void write(String filePath, ArrayList data) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter(filePath));
+		PrintWriter out = new PrintWriter(new FileWriter(PATH+filePath));
 		
 		try {
 			for (int i=0; i < data.size(); i++) {

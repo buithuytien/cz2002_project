@@ -16,6 +16,7 @@ public abstract class AbstractUI {
 		while (true) {
 			System.out.println("Enter your choice:");
 			choice = sc.nextInt();
+			
 			if (choice>=lowerBound && choice<=upperBound) {
 				break;
 			} else {
@@ -24,7 +25,20 @@ public abstract class AbstractUI {
 		}
 		
 		return choice;
+	}
+	
+	public String getInputString() {
+		Scanner sc = new Scanner(System.in);
 		
+		String input = sc.nextLine().trim();
+		
+		return input;
+	}
+	
+	public double getInputDouble() {
+		Scanner sc = new Scanner(System.in);
+		double input = sc.nextDouble();
+		return input;
 	}
 	
 	public void goBack() {
@@ -51,9 +65,4 @@ public abstract class AbstractUI {
 		nextUI.start();
 	}
 
-	public <T> void printChoices(ArrayList<T> arr) {
-		for (int i=0; i < arr.size(); i++) {
-			System.out.println(i+" : "+arr.get(i).toString());
-		}
-	}
 }

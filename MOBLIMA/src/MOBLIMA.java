@@ -1,11 +1,12 @@
-import login.Account;
+import login.entity.Account;
+import login.ui.LoginUI;
 
 public class MOBLIMA {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Starting");
-		Account.getFilePath(Account.class);
+		LoginUI ui = new LoginUI();
+		ui.start();
 	}
 
 }

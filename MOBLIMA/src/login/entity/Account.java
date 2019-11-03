@@ -1,4 +1,4 @@
-package login;
+package login.entity;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -54,6 +54,12 @@ public class Account extends AbstractEntity {
 		return generatedPassword;
 	}
 	
+	public boolean validate(Account object) {
+		if ((this.username.equals(object.getUsername())) && (this.hashPass.equals(object.getHashPass())))
+			return true;
+		return false;
+	}
+	
 	@Override
 	public int compareTo(AbstractEntity arg0) {
 		// TODO Auto-generated method stub
@@ -62,20 +68,34 @@ public class Account extends AbstractEntity {
 
 	@Override
 	public String processToDBString() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder st = new StringBuilder();
+		st.append(this.username.trim());
+		st.append(TextDB.SEPERATOR);
+		st.append(this.hashPass.trim());
+		
+		return st.toString();
 	}
 
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.username;
 	}
 
 	@Override
 	public boolean checkExistence(AbstractEntity object) {
-		// TODO Auto-generated method stub
+		if (object instanceof Account)
+			if (((Account) object).getUsername().equals(this.username))
+				return true;
 		return false;
 	}
 
+	public String getHashPass() {
+		return this.hashPass;
+	}
+	
+	public String getUsername() {
+		return this.username;
+	}
+	
 }
