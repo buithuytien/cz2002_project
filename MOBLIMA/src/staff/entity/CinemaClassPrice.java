@@ -3,6 +3,7 @@ package staff.entity;
 import java.util.StringTokenizer;
 
 import base.AbstractEntity;
+import staff.entity.enums.CinemaClass;
 import util.TextDB;
 
 public class CinemaClassPrice extends Price {

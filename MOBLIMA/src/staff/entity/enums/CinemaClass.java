@@ -1,4 +1,4 @@
-package staff.entity;
+package staff.entity.enums;
 
 public enum CinemaClass {
 	PLATINUM, GOLD, SILVER, NORMAL;

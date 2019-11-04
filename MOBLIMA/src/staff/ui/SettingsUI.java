@@ -27,6 +27,7 @@ public class SettingsUI extends AbstractUI {
 			this.intent(new PriceChangeUI());
 			break;
 		case 1:
+			this.intent(new PublicHolidayCRUDUI());
 			break;
 		case 2:
 			this.goBack();

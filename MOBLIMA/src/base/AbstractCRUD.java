@@ -39,8 +39,9 @@ public abstract class AbstractCRUD <T extends AbstractEntity> {
 		}
 	}
 	
-	protected void deleteByIndex(int idx) {
+	public void deleteByIndex(int idx) {
 		this.dataList.remove(idx);
+		this.save();
 	}
 	
 	public void list() {

@@ -3,6 +3,7 @@ package staff.entity;
 import java.util.StringTokenizer;
 
 import base.AbstractEntity;
+import staff.entity.enums.MovieType;
 import util.TextDB;
 
 public class MovieTypePrice extends Price {
