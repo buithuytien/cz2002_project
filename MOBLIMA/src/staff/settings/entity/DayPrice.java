@@ -1,29 +1,25 @@
-package staff.entity;
+package staff.settings.entity;
 
 import java.util.StringTokenizer;
 
 import base.AbstractEntity;
-import staff.entity.enums.MovieType;
+import staff.entity.enums.DayType;
 import util.TextDB;
 
-public class MovieTypePrice extends Price {
+public class DayPrice extends Price {
 	public static String directoryName="Price";
-	public static String fileName="MovieTypePrice.txt";
-	private MovieType movieType;
+	public static String fileName="DayPrice.txt";
+	private DayType dayType;
 	
-	public MovieTypePrice(String raw) {
+	public DayPrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
-		String movieTypeStr = star.nextToken().trim();
+		String dayTypeStr = star.nextToken().trim();
 		String priceStr = star.nextToken().trim();
 		
-		this.movieType = MovieType.valueOf(movieTypeStr);
+		this.dayType = DayType.valueOf(dayTypeStr);
 		this.price = Double.valueOf(priceStr);
 	};
-	
-	public boolean match(Object o) {
-		return this.movieType.equals((MovieType)o);
-	}
 	
 	@Override
 	public int compareTo(AbstractEntity o) {
@@ -32,9 +28,14 @@ public class MovieTypePrice extends Price {
 	}
 
 	@Override
+	public boolean match(Object o) {
+		return this.dayType.equals((DayType) o);
+	}
+
+	@Override
 	public String processToDBString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.movieType);
+		st.append(this.dayType);
 		st.append(TextDB.SEPERATOR);
 		st.append(this.price);
 		
@@ -44,7 +45,7 @@ public class MovieTypePrice extends Price {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.movieType);
+		st.append(this.dayType);
 		st.append("->");
 		st.append(this.price);
 		st.append("SGD");

@@ -1,9 +1,9 @@
-package staff.ui;
+package staff.settings.ui;
 
 import base.AbstractUI;
 import cache.Cache;
-import staff.crud.PublicHolidayCRUD;
-import staff.entity.PublicHoliday;
+import staff.settings.crud.PublicHolidayCRUD;
+import staff.settings.entity.PublicHoliday;
 
 public class PublicHolidayCRUDUI extends AbstractUI {
 	

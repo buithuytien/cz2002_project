@@ -1,23 +1,23 @@
-package staff.entity;
+package staff.settings.entity;
 
 import java.util.StringTokenizer;
 
 import base.AbstractEntity;
-import staff.entity.enums.DayType;
+import staff.entity.enums.CinemaClass;
 import util.TextDB;
 
-public class DayPrice extends Price {
+public class CinemaClassPrice extends Price {
 	public static String directoryName="Price";
-	public static String fileName="DayPrice.txt";
-	private DayType dayType;
+	public static String fileName="CinemaClassPrice.txt";
+	private CinemaClass cinemaClass;
 	
-	public DayPrice(String raw) {
+	public CinemaClassPrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
-		String dayTypeStr = star.nextToken().trim();
+		String cinemaClassStr = star.nextToken().trim();
 		String priceStr = star.nextToken().trim();
 		
-		this.dayType = DayType.valueOf(dayTypeStr);
+		this.cinemaClass = CinemaClass.valueOf(cinemaClassStr);
 		this.price = Double.valueOf(priceStr);
 	};
 	
@@ -29,13 +29,13 @@ public class DayPrice extends Price {
 
 	@Override
 	public boolean match(Object o) {
-		return this.dayType.equals((DayType) o);
+		return this.cinemaClass.equals((CinemaClass)o);
 	}
 
 	@Override
 	public String processToDBString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.dayType);
+		st.append(this.cinemaClass);
 		st.append(TextDB.SEPERATOR);
 		st.append(this.price);
 		
@@ -45,7 +45,7 @@ public class DayPrice extends Price {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.dayType);
+		st.append(this.cinemaClass.getName());
 		st.append("->");
 		st.append(this.price);
 		st.append("SGD");

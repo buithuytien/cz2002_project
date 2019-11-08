@@ -1,4 +1,4 @@
-package staff.ui;
+package staff.settings.ui;
 
 import base.AbstractUI;
 

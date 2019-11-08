@@ -1,4 +1,4 @@
-package staff.entity;
+package staff.settings.entity;
 
 import base.AbstractEntity;
 

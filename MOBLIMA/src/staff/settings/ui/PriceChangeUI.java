@@ -1,12 +1,12 @@
-package staff.ui;
+package staff.settings.ui;
 
 import base.AbstractUI;
 import cache.Cache;
-import staff.crud.PriceCRUD;
-import staff.entity.AgePrice;
-import staff.entity.CinemaClassPrice;
-import staff.entity.DayPrice;
-import staff.entity.MovieTypePrice;
+import staff.settings.crud.PriceCRUD;
+import staff.settings.entity.AgePrice;
+import staff.settings.entity.CinemaClassPrice;
+import staff.settings.entity.DayPrice;
+import staff.settings.entity.MovieTypePrice;
 
 public class PriceChangeUI extends AbstractUI {
 

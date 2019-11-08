@@ -1,8 +1,8 @@
-package staff.ui;
+package staff.settings.ui;
 
 import base.AbstractUI;
 import cache.Cache;
-import staff.crud.PriceCRUD;
+import staff.settings.crud.PriceCRUD;
 
 public class PriceUpdateUI extends AbstractUI {
 

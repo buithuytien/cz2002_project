@@ -1,25 +1,29 @@
-package staff.entity;
+package staff.settings.entity;
 
 import java.util.StringTokenizer;
 
 import base.AbstractEntity;
-import staff.entity.enums.CinemaClass;
+import staff.entity.enums.MovieType;
 import util.TextDB;
 
-public class CinemaClassPrice extends Price {
+public class MovieTypePrice extends Price {
 	public static String directoryName="Price";
-	public static String fileName="CinemaClassPrice.txt";
-	private CinemaClass cinemaClass;
+	public static String fileName="MovieTypePrice.txt";
+	private MovieType movieType;
 	
-	public CinemaClassPrice(String raw) {
+	public MovieTypePrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
-		String cinemaClassStr = star.nextToken().trim();
+		String movieTypeStr = star.nextToken().trim();
 		String priceStr = star.nextToken().trim();
 		
-		this.cinemaClass = CinemaClass.valueOf(cinemaClassStr);
+		this.movieType = MovieType.valueOf(movieTypeStr);
 		this.price = Double.valueOf(priceStr);
 	};
+	
+	public boolean match(Object o) {
+		return this.movieType.equals((MovieType)o);
+	}
 	
 	@Override
 	public int compareTo(AbstractEntity o) {
@@ -28,14 +32,9 @@ public class CinemaClassPrice extends Price {
 	}
 
 	@Override
-	public boolean match(Object o) {
-		return this.cinemaClass.equals((CinemaClass)o);
-	}
-
-	@Override
 	public String processToDBString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.cinemaClass);
+		st.append(this.movieType);
 		st.append(TextDB.SEPERATOR);
 		st.append(this.price);
 		
@@ -45,7 +44,7 @@ public class CinemaClassPrice extends Price {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
-		st.append(this.cinemaClass);
+		st.append(this.movieType.getName());
 		st.append("->");
 		st.append(this.price);
 		st.append("SGD");

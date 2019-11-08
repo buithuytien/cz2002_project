@@ -1,11 +1,11 @@
 package staff.entity.enums;
 
-public enum CinemaClass {
-	PLATINUM("Platinum"), GOLD("Gold"), SILVER("Silver"), NORMAL("Normal");
+public enum MovieRating {
+	PG("PG"), G("G"), R("R"), PG_13("PG-13"), NC_17("NC-17");
 	
 	private String nameStr;
 	
-	CinemaClass(String nameStr) {
+	MovieRating(String nameStr) {
 		this.nameStr = nameStr;
 	}
 	

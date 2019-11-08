@@ -1,4 +1,4 @@
-package staff.entity;
+package staff.settings.entity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

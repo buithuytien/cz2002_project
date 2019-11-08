@@ -1,4 +1,4 @@
-package staff.crud;
+package staff.settings.crud;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import base.AbstractCRUD;
-import staff.entity.PublicHoliday;
+import staff.settings.entity.PublicHoliday;
 
 public class PublicHolidayCRUD<T extends PublicHoliday> extends AbstractCRUD<T> {
 	public PublicHolidayCRUD(Class<T> clazz) {

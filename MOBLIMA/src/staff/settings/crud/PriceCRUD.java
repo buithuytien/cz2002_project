@@ -1,9 +1,9 @@
-package staff.crud;
+package staff.settings.crud;
 
 import java.util.ArrayList;
 
 import base.AbstractCRUD;
-import staff.entity.Price;
+import staff.settings.entity.Price;
 
 public class PriceCRUD<T extends Price> extends AbstractCRUD<T> {
 	public PriceCRUD(Class<T> clazz) {
