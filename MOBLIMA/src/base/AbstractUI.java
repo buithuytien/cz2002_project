@@ -41,6 +41,29 @@ public abstract class AbstractUI {
 		return input;
 	}
 	
+	public int getInputInteger() {
+		Scanner sc = new Scanner(System.in);
+		int input = sc.nextInt();
+		return input;
+	}
+	
+	public ArrayList<String> getInputListString() {
+		String terminate = "QUIT";
+		ArrayList<String> arr = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine().trim();
+		arr.add(input);
+		while (true){
+			System.out.println("Enter next String (Enter" +terminate+ " to stop:)");
+			input = sc.nextLine().trim();
+			if (input.equals(terminate))
+				break;
+			
+			arr.add(input);
+		} 
+		return arr;
+	}
+	
 	public void goBack() {
 		if (this.prevUI == null) {
 			System.exit(1);

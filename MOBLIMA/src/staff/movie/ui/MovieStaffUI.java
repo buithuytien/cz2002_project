@@ -3,6 +3,7 @@ package staff.movie.ui;
 import base.AbstractUI;
 import cache.Cache;
 import staff.movie.crud.MovieCRUD;
+import staff.movie.entity.Movie;
 
 public class MovieStaffUI extends AbstractUI {
 
@@ -32,6 +33,7 @@ public class MovieStaffUI extends AbstractUI {
 			this.intent(new MovieListUI());
 			break;
 		case 1:
+			this.intent(new MovieCRUDUI());
 			break;
 		}
 	}

@@ -12,4 +12,13 @@ public enum CinemaClass {
 	public String getName() {
 		return nameStr;
 	}
+	
+	public static int printChoices() {
+		int N = CinemaClass.values().length;
+		for (int i=0; i<N; i++) {
+			System.out.println(i+" : "+CinemaClass.values()[i].getName());
+		}
+		
+		return N;
+	}
 }

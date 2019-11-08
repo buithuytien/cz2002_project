@@ -12,4 +12,13 @@ public enum MovieRating {
 	public String getName() {
 		return nameStr;
 	}
+	
+	public static int printChoices() {
+		int N = MovieRating.values().length;
+		for (int i=0; i<N; i++) {
+			System.out.println(i+" : "+MovieRating.values()[i].getName());
+		}
+		
+		return N;
+	}
 }
