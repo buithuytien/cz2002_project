@@ -256,6 +256,10 @@ public class Movie extends AbstractEntity {
 		return this.status == ShowingStatus.END_SHOWING;
 	}
 	
+	public boolean isComingSoon() {
+		return this.status == ShowingStatus.COMING_SOON;
+	}
+	
 	public ReviewCRUD<Review> getReviewCRUD() {
 		return new ReviewCRUD<Review>(Review.class, this.id);
 	}

@@ -25,6 +25,19 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 		return i;
 	}
 	
+	public int printChoicesForShowtimes() {
+		int i=0;
+		int N = this.getDataLength();
+		while(i<N) {
+			if (this.dataList.get(i).isComingSoon())
+				break;
+			System.out.println(i+" : "+this.dataList.get(i).toString());
+			++i;
+		}
+		
+		return i;
+	}
+	
 	public boolean checkExistenceId(int id) {
 		for (int i=0; i<getDataLength(); i++) {
 			if (this.dataList.get(i).getId()==id)
