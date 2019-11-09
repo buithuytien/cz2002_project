@@ -50,7 +50,7 @@ public abstract class AbstractCRUD <T extends AbstractEntity> {
 		}
 	}
 	
-	protected void save(){
+	public void save(){
 		ArrayList<String> saveData = new ArrayList<>();
 		this.sort();
 		

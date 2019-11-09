@@ -8,6 +8,7 @@ import staff.entity.enums.MovieRating;
 import staff.entity.enums.MovieType;
 import staff.entity.enums.ShowingStatus;
 import staff.movie.crud.MovieCRUD;
+import staff.movie.entity.Movie;
 
 public class MovieCRUDUI extends AbstractUI {
 
@@ -85,10 +86,18 @@ public class MovieCRUDUI extends AbstractUI {
 	}
 	
 	public void startUpdate() {
+		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
+		System.out.println();
+		int noMovieChoice = crud.printChoices();
+		int movieChoice = this.getInputChoice(0, noMovieChoice-1);
 		
+		this.runUpdate(movieChoice);
 	}
 	
-	public void runUpdate() {
+	public void runUpdate(int movieChoice) {
+		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
+		Movie movie = crud.getMovie(movieChoice);
 		
+		this.intent(new MovieUpdateDetailUI(movie));
 	}
 }

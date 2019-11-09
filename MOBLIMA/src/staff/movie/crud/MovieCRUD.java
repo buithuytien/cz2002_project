@@ -50,7 +50,8 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 		for (int i=0; i<getDataLength(); ++i) {
 			boolean check = false;
 			check = this.dataList.get(i).getTitle().toLowerCase().contains(search.toLowerCase());
-			if (check)
+			boolean checkEndShowing = this.dataList.get(i).isEndShowing();
+			if (check&&!checkEndShowing)
 				res.add((Movie)this.dataList.get(i));
 		}
 		

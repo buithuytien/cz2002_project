@@ -27,7 +27,7 @@ public class MovieListUI extends AbstractUI {
 		MovieCRUD<Movie> crud = (MovieCRUD)Cache.getCurrentCRUD();
 		switch (choice) {
 		case 0:
-			int noChoice = crud.printChoices();
+			int noChoice = crud.printChoicesWithoutEndShowing();
 			int movieChoice = getInputChoice(0, noChoice-1);
 			Movie movie = crud.getMovie(movieChoice);
 			this.intent(new MovieDetailUI(movie));

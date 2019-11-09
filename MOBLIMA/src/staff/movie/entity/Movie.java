@@ -131,6 +131,8 @@ public class Movie extends AbstractEntity {
 		st.append(this.director);		
 		st.append(TextDB.SEPERATOR);
 		
+		st.append(this.status.getName());
+		st.append(TextDB.SEPERATOR);
 		st.append(this.rating);
 		
 		return st.toString();
@@ -180,8 +182,36 @@ public class Movie extends AbstractEntity {
 		return this.title;
 	}
 	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 	public ShowingStatus getStatus() {
 		return this.status;
+	}
+	
+	public void setStatus(int statusChoice) {
+		this.status = ShowingStatus.values()[statusChoice];
+	}
+	
+	public void setType(int typeChoice) {
+		this.type = MovieType.values()[typeChoice];
+	}
+	
+	public void setMovieRating(int movieRatingChoice) {
+		this.movieRating = MovieRating.values()[movieRatingChoice];
+	}
+	
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+	
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	
+	public void setCast(ArrayList<String> cast) {
+		this.cast = cast;
 	}
 	
 	public static String getFilePath() {
