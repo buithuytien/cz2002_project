@@ -35,8 +35,8 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 	}
 	
 	public void createMovie(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
-			String synopsis, String director, ArrayList<String> cast) {
-		Movie movie = new Movie(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast);
+			String synopsis, String director, ArrayList<String> cast, int duration) {
+		Movie movie = new Movie(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);
 		
 		this.create((T)movie);
 	}

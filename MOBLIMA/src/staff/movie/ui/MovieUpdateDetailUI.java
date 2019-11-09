@@ -29,15 +29,16 @@ public class MovieUpdateDetailUI extends AbstractUI {
 		System.out.println("4 : Update synopsis");
 		System.out.println("5 : Update Director");
 		System.out.println("6 : Update Cast");
-		System.out.println("7 : Back");
+		System.out.println("7 : Update Duration");
+		System.out.println("8 : Back");
 		
-		int choice = this.getInputChoice(0, 7);
+		int choice = this.getInputChoice(0, 8);
 		
 		this.run(choice);
 	}
 
 	public void run(int choice) {
-		if (choice==7) {
+		if (choice==8) {
 			this.goBack();
 			return;
 		}
@@ -80,6 +81,11 @@ public class MovieUpdateDetailUI extends AbstractUI {
 			System.out.println("Enter Cast:");
 			ArrayList<String> cast = this.getInputListString();
 			this.movie.setCast(cast);
+			break;
+		case 7:
+			System.out.println("Enter duration in Minute:");
+			int duration = this.getInputInteger();
+			this.movie.setDuration(duration);
 			break;
 		}
 		System.out.println("Update successfully");

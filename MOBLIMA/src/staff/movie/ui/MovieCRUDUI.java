@@ -75,13 +75,16 @@ public class MovieCRUDUI extends AbstractUI {
 		System.out.println("Enter Cast:");
 		ArrayList<String> cast = this.getInputListString();
 		
-		this.runCreate(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast);
+		System.out.println("Enter duration in Minute:");
+		int duration = this.getInputInteger();
+		
+		this.runCreate(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);
 	}
 	
 	public void runCreate(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
-			String synopsis, String director, ArrayList<String> cast) {
+			String synopsis, String director, ArrayList<String> cast, int duration) {
 		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
-		crud.createMovie(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast);
+		crud.createMovie(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);
 		this.start();
 	}
 	

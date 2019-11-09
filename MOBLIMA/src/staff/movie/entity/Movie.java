@@ -28,9 +28,10 @@ public class Movie extends AbstractEntity {
 	private int ticketSales=0;
 	private ArrayList<String> cast;
 	private ArrayList<Review> reviewList;
+	private int duration;
 	
 	public Movie(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
-			String synopsis, String director, ArrayList<String> cast) {
+			String synopsis, String director, ArrayList<String> cast, int duration) {
 		this.id = id;
 		this.title = title;
 		this.status = ShowingStatus.values()[statusChoice];
@@ -40,6 +41,7 @@ public class Movie extends AbstractEntity {
 		this.director = director;
 		this.cast = cast;
 		this.reviewList = new ArrayList<Review>();
+		this.duration = duration;
 	}
 	
 	public Movie(String raw) {
@@ -54,6 +56,7 @@ public class Movie extends AbstractEntity {
 		String director = star.nextToken().trim();
 		String ticketSalesStr = star.nextToken().trim();
 		String castStr = star.nextToken().trim();
+		String durationStr = star.nextToken().trim();
 		
 		this.id = Integer.valueOf(idStr);
 		this.title = title;
@@ -70,6 +73,7 @@ public class Movie extends AbstractEntity {
 			this.cast.add(castToken.nextToken().trim());
 		}
 		this.reviewList = this.getReviewList();
+		this.duration = Integer.valueOf(durationStr);
 	}
 	
 	private double computeRating() {
@@ -110,7 +114,8 @@ public class Movie extends AbstractEntity {
 			st.append(ARR_SEPERATOR);
 		}
 		st.append(this.cast.get(this.cast.size()-1));
-		
+		st.append(TextDB.SEPERATOR);
+		st.append(this.duration);
 //		st.append(TextDB.SEPERATOR);
 //		
 //
@@ -131,10 +136,10 @@ public class Movie extends AbstractEntity {
 		st.append(TextDB.SEPERATOR);
 		st.append(this.title);
 		st.append(TextDB.SEPERATOR);
-		
+		st.append(this.duration);
+		st.append(TextDB.SEPERATOR);
 		st.append(this.director);		
 		st.append(TextDB.SEPERATOR);
-		
 		st.append(this.status.getName());
 		st.append(TextDB.SEPERATOR);
 		
@@ -153,6 +158,8 @@ public class Movie extends AbstractEntity {
 		st.append(this.id);
 		st.append("\n");
 		st.append(this.title);
+		st.append("\n");
+		st.append(this.duration);
 		st.append("\n");
 		st.append(this.status);
 		st.append("\n");
@@ -226,6 +233,10 @@ public class Movie extends AbstractEntity {
 	
 	public void setCast(ArrayList<String> cast) {
 		this.cast = cast;
+	}
+	
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 	
 	public static String getFilePath() {
