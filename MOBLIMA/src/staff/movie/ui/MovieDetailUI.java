@@ -14,9 +14,10 @@ public class MovieDetailUI extends AbstractUI {
 		System.out.println();
 		System.out.println("0 : Movie Details");
 		System.out.println("1 : Movie Review");
-		System.out.println("2 : Back");
+		System.out.println("2 : Add your review");
+		System.out.println("3 : Back");
 		
-		int choice = this.getInputChoice(0, 2);
+		int choice = this.getInputChoice(0, 3);
 		this.run(choice);
 	}
 	
@@ -31,6 +32,18 @@ public class MovieDetailUI extends AbstractUI {
 			this.start();
 			break;
 		case 2:
+			if (this.movie.checkReviewExist()) {
+				System.out.println("You already input review for this movie");
+			} else {
+				System.out.println("Enter your review:");
+				String review = this.getInputString();
+				System.out.println("Enter your rating (out of 5):");
+				int rating = this.getInputChoice(0,5);
+				this.movie.addReview(review, rating);
+			}
+			this.start();
+			break;
+		case 3:
 			this.goBack();
 			break;
 		}

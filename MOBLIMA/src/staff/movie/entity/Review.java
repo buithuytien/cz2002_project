@@ -70,6 +70,10 @@ public class Review extends AbstractEntity {
 		return st.toString();
 	}
 
+	public boolean checkUsernameExist() {
+		return this.username.equals(Cache.getUsername());
+	}
+	
 	@Override
 	public boolean checkExistence(AbstractEntity object) {
 		// TODO Auto-generated method stub
@@ -81,6 +85,10 @@ public class Review extends AbstractEntity {
 //		return this.id;
 //	}
 
+	public int getRating() {
+		return this.rating;
+	}
+	
 	public static void setFileName(int movieId) {
 		fileName = Integer.toString(movieId) + ".txt";
 	}

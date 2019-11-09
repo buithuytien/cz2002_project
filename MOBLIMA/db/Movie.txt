@@ -1,1 +1,2 @@
-1|Terminator|PREVIEW|THREE_D|PG|This is part 1 of terminator|Nhan|0|Nhan Handsome,Nhan more Handsome
+3|New Awesome Movie|NOW_SHOWING|NORMAL|PG_13|Awesome|Nhan|0|Nhan
+1|Terminator|END_SHOWING|THREE_D|PG|This is part 1 of terminator|Nhan|0|Nhan Handsome,Nhan more Handsome

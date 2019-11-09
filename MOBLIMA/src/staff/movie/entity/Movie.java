@@ -27,7 +27,6 @@ public class Movie extends AbstractEntity {
 	private String director;
 	private int ticketSales=0;
 	private ArrayList<String> cast;
-	private int rating=-1;
 	private ArrayList<Review> reviewList;
 	
 	public Movie(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
@@ -71,6 +70,11 @@ public class Movie extends AbstractEntity {
 			this.cast.add(castToken.nextToken().trim());
 		}
 		this.reviewList = this.getReviewList();
+	}
+	
+	private double computeRating() {
+		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
+		return reviewCRUD.computeRating();
 	}
 	
 	@Override
@@ -133,7 +137,13 @@ public class Movie extends AbstractEntity {
 		
 		st.append(this.status.getName());
 		st.append(TextDB.SEPERATOR);
-		st.append(this.rating);
+		
+		double rating = this.computeRating();
+		if (rating==-1)
+			st.append("NA");
+		else {
+			st.append(rating);
+		}
 		
 		return st.toString();
 	}
@@ -162,8 +172,12 @@ public class Movie extends AbstractEntity {
 		st.append(this.cast.get(this.cast.size()-1));
 		
 		st.append("\n");
-		
-		st.append(this.rating);
+		double rating = this.computeRating();
+		if (rating==-1)
+			st.append("NA");
+		else {
+			st.append(rating);
+		}
 		
 		return st.toString();
 	}
@@ -173,7 +187,7 @@ public class Movie extends AbstractEntity {
 		// TODO Auto-generated method stub
 		return ((Movie)object).getId() == this.id;
 	}
-
+	
 	public int getId() {
 		return this.id;
 	}
@@ -233,6 +247,11 @@ public class Movie extends AbstractEntity {
 	
 	public ReviewCRUD<Review> getReviewCRUD() {
 		return new ReviewCRUD<Review>(Review.class, this.id);
+	}
+	
+	public boolean checkReviewExist() {
+		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
+		return reviewCRUD.checkUsernameExist();
 	}
 	
 	public ArrayList<Review> getReviewList() {
