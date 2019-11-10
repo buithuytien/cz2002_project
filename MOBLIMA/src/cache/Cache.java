@@ -6,7 +6,15 @@ public class Cache {
 	public static final String DBPath="/home/nhan/git/cz2002_project/MOBLIMA/db/";
 	private static String userName;
 	private static AbstractCRUD currentCRUD;
+	private static boolean isStaff;
 	
+	public static boolean isStaff() {
+		return isStaff;
+	}
+	
+	public static void setStaff() {
+		isStaff = true;
+	}
 	
 	public static void setUserName(String str) {
 		userName = str;

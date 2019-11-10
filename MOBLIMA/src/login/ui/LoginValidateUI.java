@@ -6,6 +6,7 @@ import login.crud.AccountCRUD;
 import login.entity.Account;
 import login.entity.UserAccount;
 import staff.ui.StaffUI;
+import user.ui.UserUI;
 
 public class LoginValidateUI extends AbstractUI {
 
@@ -33,10 +34,13 @@ public class LoginValidateUI extends AbstractUI {
 			if (crud.validate(acc)) {
 				System.out.println("Login Successfully");
 				Cache.setUserName(acc.getUsername());
-				if (acc instanceof UserAccount)
+				if (acc instanceof UserAccount) {
 					this.intent(new UserUI());
-				else 
+				}
+				else {
+					Cache.setStaff();
 					this.intent(new StaffUI());
+				}
 			} else {
 				System.out.println("Wrong login info");
 				this.goBack();

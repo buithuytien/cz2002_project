@@ -77,12 +77,12 @@ public class Seat {
 	}
 	
 	
-	public boolean isOccupied(int rowChoice, int colChoice) {
+	public boolean isTaken(int rowChoice, int colChoice) {
 		return this.layout[rowChoice][colChoice] == 1;
 	}
 	
 	public void takeSeat(int rowChoice, int colChoice) {
-		if (!isOccupied(rowChoice, colChoice))
+		if (!isTaken(rowChoice, colChoice))
 			this.layout[rowChoice][colChoice] = 1;
 		else 
 			System.out.println("Seat Occupied");
@@ -93,10 +93,41 @@ public class Seat {
 	public boolean isFull() {
 		for (int i=0; i<this.row; ++i) {
 			for (int j=0; j<this.col; ++j) {
-				if (!isOccupied(i,j))
+				if (!isTaken(i,j))
 					return false;
 			}
 		}
 		return true;
+	}
+
+	public void viewSeat() {
+		char x='A';
+		String available = "O";
+		String taken = "X";
+		System.out.println("-----------------------------------------------");
+		System.out.println("                    Screen                    ");
+		System.out.print("  ");
+		for (int i=0; i<this.col; ++i) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		
+		for (int i=0; i<this.row; ++i) {
+			System.out.print(Character.toString((char)(x+i)) + " ");
+			for (int j=0; j<this.col; ++j) {
+				if (this.layout[i][j]==0)
+					System.out.print(available+" ");
+				else
+					System.out.print(taken+" ");
+			}
+			System.out.println();
+		}
+		
+		System.out.println("                    |Entrance|                    ");
+		System.out.println("--------------------------------------------------");
+		System.out.println("LEGEND");
+		System.out.println("Seat Available: "+available);
+		System.out.println("Seat Taken: "+taken);
+		
 	}
 }

@@ -106,8 +106,18 @@ public class Showtimes extends AbstractEntity {
 		return this.cinemaId;
 	}
 	
+	public int getMovieId() {
+		return this.movieId;
+	}
+	
 	public LocalTime getStartTime() {
 		return this.time;
+	}
+	
+	public void viewSeat() {
+		this.seat.viewSeat();
+		if (this.seat.isFull())
+			System.out.println("No seat available");
 	}
 	
 	public static void setFileName(int cineplexId, String dateStr) {

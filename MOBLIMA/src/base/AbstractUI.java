@@ -57,7 +57,7 @@ public abstract class AbstractUI {
 		String input = sc.nextLine().trim();
 		arr.add(input);
 		while (true){
-			System.out.println("Enter next String (Enter" +terminate+ " to stop:)");
+			System.out.println("Enter next String (Enter " +terminate+ " to stop:)");
 			input = sc.nextLine().trim();
 			if (input.equals(terminate))
 				break;
