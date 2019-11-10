@@ -3,11 +3,15 @@ package staff.settings.crud;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
 import base.AbstractCRUD;
 import staff.settings.entity.PublicHoliday;
+import util.DateTimeHelper;
+import util.TextDB;
 
 public class PublicHolidayCRUD<T extends PublicHoliday> extends AbstractCRUD<T> {
 	public PublicHolidayCRUD(Class<T> clazz) {
@@ -38,14 +42,8 @@ public class PublicHolidayCRUD<T extends PublicHoliday> extends AbstractCRUD<T> 
 	}
 	
 	public boolean isPublicHoliday(String dateStr) {
-		Date date = null;
-		try {
-			date = new SimpleDateFormat(PublicHoliday.FORMAT).parse(dateStr);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+		LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
 		for (int i=0; i<this.getDataLength(); i++) {
 			if (this.dataList.get(i).match(date))
 				return true;

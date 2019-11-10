@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class TextDB {
 	public static final String PATH="./db/";
 	public static final String SEPERATOR="|";
-	
+
 	public static ArrayList read(String filePath) throws IOException {
 		ArrayList<String> data = new ArrayList();
 		Scanner scanner = new Scanner(new FileInputStream(PATH+filePath));

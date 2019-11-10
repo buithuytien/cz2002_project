@@ -4,6 +4,8 @@ import base.AbstractUI;
 import cache.Cache;
 import staff.settings.crud.PublicHolidayCRUD;
 import staff.settings.entity.PublicHoliday;
+import util.DateTimeHelper;
+import util.TextDB;
 
 public class PublicHolidayCRUDUI extends AbstractUI {
 	
@@ -39,7 +41,7 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 	
 	public void startCreate() {
 		System.out.println();
-		System.out.println("Enter the date in format " + PublicHoliday.FORMAT);
+		System.out.println("Enter the date in format " + DateTimeHelper.DATE_FORMAT);
 		String dateStr = this.getInputString();
 		System.out.println("Enter the name of Public Holiday");
 		String name = this.getInputString();

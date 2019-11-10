@@ -1,7 +1,10 @@
 package base;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import util.DateTimeHelper;
 
 public abstract class AbstractUI {
 	private AbstractUI prevUI;
@@ -62,6 +65,19 @@ public abstract class AbstractUI {
 			arr.add(input);
 		} 
 		return arr;
+	}
+	
+	public String getInputDate() {
+		String dateStr;
+		while (true) {
+			System.out.println("Enter date in "+DateTimeHelper.DATE_FORMAT);
+			dateStr = this.getInputString();
+			LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
+			if (date.isAfter(LocalDate.now()))
+				break;
+			System.out.println("Input date after today");
+		}
+		return dateStr;
 	}
 	
 	public void goBack() {
