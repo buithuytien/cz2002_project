@@ -22,6 +22,7 @@ public class Seat {
 		this.row = row;
 		this.col = col;
 		this.layout = new int[row][col];
+		this.saveSeat();
 	}
 
 	public Seat(String filePath) {
@@ -83,6 +84,10 @@ public class Seat {
 	public void takeSeat(int rowChoice, int colChoice) {
 		if (!isOccupied(rowChoice, colChoice))
 			this.layout[rowChoice][colChoice] = 1;
+		else 
+			System.out.println("Seat Occupied");
+		
+		this.saveSeat();
 	}
 	
 	public boolean isFull() {

@@ -235,6 +235,10 @@ public class Movie extends AbstractEntity {
 		this.cast = cast;
 	}
 	
+	public int getDuration() {
+		return this.duration;
+	}
+	
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}

@@ -16,4 +16,8 @@ public class CinemaCRUD<T extends Cinema> extends AbstractCRUD<T> {
 	public ArrayList<T> getCinemaList() {
 		return this.dataList;
 	}
+	
+	public Cinema getCinema(int idx) {
+		return (Cinema)this.dataList.get(idx);
+	}
 }

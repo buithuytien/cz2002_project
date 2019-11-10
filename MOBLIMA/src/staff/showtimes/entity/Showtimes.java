@@ -33,7 +33,7 @@ public class Showtimes extends AbstractEntity {
 		this.movieId = movie.getId();
 		
 		
-		this.seat = new Seat(cinema.getRow(), cinema.getCol(), this.getFilePath());
+		this.seat = new Seat(cinema.getRow(), cinema.getCol(), this.getSeatFilePath());
 	}
 	
 	public Showtimes(String raw) {
@@ -48,7 +48,13 @@ public class Showtimes extends AbstractEntity {
 		this.time = DateTimeHelper.convertStringToTime(timeStr);
 		this.movieId = Integer.valueOf(movieIdStr);
 		
-		this.seat = new Seat(this.getFilePath());
+		this.seat = new Seat(this.getSeatFilePath());
+	}
+	
+	public LocalTime computeEndTime() {
+		MovieCRUD<Movie> crud = new MovieCRUD<>(Movie.class);
+		Movie movie = crud.getMovieById(this.movieId);
+		return this.time.plusMinutes(movie.getDuration());
 	}
 	
 	@Override
@@ -67,7 +73,7 @@ public class Showtimes extends AbstractEntity {
 	public String processToDBString() {
 		StringBuilder st = new StringBuilder();
 		st.append(this.cinemaId);
-		
+		st.append(TextDB.SEPERATOR);
 		String timeStr = DateTimeHelper.convertTimeToString(this.time);
 		st.append(timeStr.trim());
 		st.append(TextDB.SEPERATOR);
@@ -106,7 +112,8 @@ public class Showtimes extends AbstractEntity {
 	
 	public static void setFileName(int cineplexId, String dateStr) {
 		fileName = Integer.toString(cineplexId)+"/"+dateStr + ".txt";
-		date = DateTimeHelper.convertStringToDate(dateStr);
+		Showtimes.date = DateTimeHelper.convertStringToDate(dateStr);
+		Showtimes.cineplexId = cineplexId;
 	}
 	
 	public static String getFilePath() {
@@ -126,7 +133,7 @@ public class Showtimes extends AbstractEntity {
 
 		String dateStr = DateTimeHelper.convertDateToString(Showtimes.date);
 		String timeStr = DateTimeHelper.convertTimeToString(this.time);
-		String path = cineplexId+"/"+dateStr+"/"+timeStr+".txt";
+		String path = directoryName+"/"+cineplexId+"/"+dateStr+"/"+timeStr+".txt";
 		File file = new File(Cache.DBPath+path);
 		file.getParentFile().mkdirs();
 		try {
