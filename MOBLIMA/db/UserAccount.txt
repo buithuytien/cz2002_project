@@ -1,6 +1,10 @@
 nhan|7b8b965ad4bca0e41ab51de7b31363a1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 janeshin|235a55ab26e47dc1846e961f42b16678
 =======
 jane|5844a15e76563fedd11840fd6f40ea7b
+>>>>>>> Stashed changes
+=======
+k|8ce4b16b22b58894aa86c421e8759df3
 >>>>>>> Stashed changes
