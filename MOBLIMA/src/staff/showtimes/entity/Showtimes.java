@@ -87,7 +87,7 @@ public class Showtimes extends AbstractEntity {
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
 		StringBuilder st = new StringBuilder();
 		st.append(this.cinemaId);
-		
+		st.append(TextDB.SEPERATOR);
 		String timeStr = DateTimeHelper.convertTimeToString(this.time);
 		st.append(timeStr.trim());
 		st.append(TextDB.SEPERATOR);
@@ -100,6 +100,10 @@ public class Showtimes extends AbstractEntity {
 	public boolean checkExistence(AbstractEntity object) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public static LocalDate getDate() {
+		return Showtimes.date;
 	}
 	
 	public int getCinemaId() {
@@ -118,6 +122,10 @@ public class Showtimes extends AbstractEntity {
 		this.seat.viewSeat();
 		if (this.seat.isFull())
 			System.out.println("No seat available");
+	}
+	
+	public boolean isFull() {
+		return this.seat.isFull();
 	}
 	
 	public static void setFileName(int cineplexId, String dateStr) {

@@ -57,7 +57,17 @@ public class Cineplex extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return this.processToDBString();
+		StringBuilder st = new StringBuilder();
+		st.append("ID-");
+		st.append(this.id);
+		st.append(TextDB.SEPERATOR);
+		st.append("Name-");
+		st.append(this.name);
+		st.append(TextDB.SEPERATOR);
+		st.append("Location-");
+		st.append(this.location);
+		
+		return st.toString();
 	}
 
 	@Override

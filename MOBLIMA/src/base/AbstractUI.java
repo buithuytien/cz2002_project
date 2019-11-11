@@ -73,9 +73,9 @@ public abstract class AbstractUI {
 			System.out.println("Enter date in "+DateTimeHelper.DATE_FORMAT);
 			dateStr = this.getInputString();
 			LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
-			if (date.isAfter(LocalDate.now()))
+			if (DateTimeHelper.fromToday(date))
 				break;
-			System.out.println("Input date after today");
+			System.out.println("Input date from today");
 		}
 		return dateStr;
 	}

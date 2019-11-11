@@ -3,6 +3,7 @@ package cache;
 import base.AbstractCRUD;
 
 public class Cache {
+	// Really careful about the path (should include examples of Linux and Windows, Mac)
 	public static final String DBPath="/home/nhan/git/cz2002_project/MOBLIMA/db/";
 	private static String userName;
 	private static AbstractCRUD currentCRUD;

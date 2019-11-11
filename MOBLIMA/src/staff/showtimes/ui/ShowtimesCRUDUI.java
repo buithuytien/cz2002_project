@@ -39,15 +39,30 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		System.out.println("Enter Showing Date");
 		String dateStr = this.getInputDate();
 		
-		System.out.println("Enter Start Time in " + DateTimeHelper.TIME_FORMAT);
-		String timeStr = this.getInputTime(movie.getDuration());
+		System.out.println("Enter Start Time:");
+		String timeStr = this.getInputTime(dateStr, movie.getDuration());
 		
 		this.run(cineplex, dateStr, cinema, timeStr, movie);
 	}
 
 	// Need to check if pass next day
-	public String getInputTime(int movieDuration) {
-		return this.getInputString();
+	public String getInputTime(String dateStr, int movieDuration) {
+		String input;
+		while (true) {
+			System.out.println("Enter Time in " + DateTimeHelper.TIME_FORMAT);
+			input = this.getInputString();
+			if (DateTimeHelper.isToday(dateStr)) {
+				if (!DateTimeHelper.checkAfterMinutesFromNow(input)) {
+					System.out.println("Input time 15 minutes after current time");
+					continue;
+				}
+			} 
+			if (DateTimeHelper.getMinutesTillMidnight(input)>movieDuration)
+				break;
+			System.out.println("Cannot pass midnight");
+		}
+		
+		return input;
 	}
 	
 	public void run(Cineplex cineplex, String dateStr, Cinema cinema, String timeStr, Movie movie ) {

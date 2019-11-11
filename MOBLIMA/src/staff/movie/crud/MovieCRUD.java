@@ -67,6 +67,15 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 		return null;
 	}
 	
+	public void printMovieListById(ArrayList<Integer> movieIdList) {
+		ArrayList<Movie> movieList = new ArrayList<>();
+		Movie movie;
+		for (int i=0; i<movieIdList.size(); ++i) {
+			movie = this.getMovieById(movieIdList.get(i));
+			System.out.println(i+" : "+movie.toString());
+		}
+	}
+	
 	public ArrayList<Movie> getSearchResult(String search) {
 		ArrayList<Movie> res = new ArrayList<>();
 		for (int i=0; i<getDataLength(); ++i) {
