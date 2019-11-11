@@ -12,8 +12,8 @@ public abstract class AbstractUI {
 	
 	public int getInputChoice(int lowerBound, int upperBound) {
 		Scanner sc = new Scanner(System.in);
-		int choice;
-		
+		int choice = 0;
+		try {
 		while (true) {
 			System.out.println("Enter your choice:");
 			choice = sc.nextInt();
@@ -24,27 +24,50 @@ public abstract class AbstractUI {
 				System.out.println("Wrong Input! Try again!");
 			}
 		}
-		
+		}
+		catch(Exception e){
+			System.out.println("Wrong Input! Try again!");
+			getInputChoice(lowerBound, upperBound);
+		}
 		return choice;
 	}
 	
 	public String getInputString() {
+		String input = null;
 		Scanner sc = new Scanner(System.in);
-		
-		String input = sc.nextLine().trim();
-		
+		try {
+		 input = sc.nextLine().trim();
+		}
+		catch(Exception e) {
+			System.out.println("Wrong Input! Try again!");
+			getInputString();
+		}
 		return input;
 	}
 	
 	public double getInputDouble() {
+		double input = 0.0;
 		Scanner sc = new Scanner(System.in);
-		double input = sc.nextDouble();
+		try {
+		 input = sc.nextDouble();
+		 }
+		catch(Exception e) {
+			System.out.println("Wrong Input! Try again!");
+			getInputDouble();
+		}
 		return input;
 	}
 	
 	public int getInputInteger() {
+		int input = 0;
 		Scanner sc = new Scanner(System.in);
-		int input = sc.nextInt();
+		try {
+		 input = sc.nextInt();
+		}
+		catch(Exception e) {
+			System.out.println("Wrong Input! Try again!");
+			getInputInteger();
+		}
 		return input;
 	}
 	
@@ -65,7 +88,28 @@ public abstract class AbstractUI {
 		return arr;
 	}
 	
+<<<<<<< Updated upstream
 	
+=======
+	public String getInputDate() {
+		String dateStr = null;
+		try {
+		while (true) {
+			System.out.println("Enter date in "+DateTimeHelper.DATE_FORMAT);
+			dateStr = this.getInputString();
+			LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
+			if (DateTimeHelper.fromToday(date))
+				break;
+			System.out.println("Input date from today");
+		  }
+		}
+		catch(Exception e){
+			System.out.println("Wrong Input! Try again!");
+			 getInputDate();
+		}
+		return dateStr;
+	}
+>>>>>>> Stashed changes
 	
 	public void goBack() {
 		if (this.prevUI == null) {
