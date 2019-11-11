@@ -18,7 +18,8 @@ public class MovieListUI extends AbstractUI {
 		System.out.println("2 : Back");
 		
 		int choice = this.getInputChoice(0, 2);
-		
+		MovieCRUD<Movie> crud = new MovieCRUD<>(Movie.class);
+		Cache.setCurrentCRUD(crud);
 		this.run(choice);
 	}
 	

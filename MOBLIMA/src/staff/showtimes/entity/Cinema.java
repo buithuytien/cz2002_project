@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 import base.AbstractEntity;
 import cache.Cache;
+import staff.entity.enums.CinemaClass;
 import util.TextDB;
 
 public class Cinema extends AbstractEntity {
@@ -13,11 +14,13 @@ public class Cinema extends AbstractEntity {
 	public static String fileName;
 	
 	private int id;
+	private CinemaClass type;
 	private int row;
 	private int col;
 	
-	public Cinema(int id, int row, int col) {
+	public Cinema(int id, CinemaClass type, int row, int col) {
 		this.id = id;
+		this.type = type;
 		this.row = row;
 		this.col = col;
 	}
@@ -26,10 +29,12 @@ public class Cinema extends AbstractEntity {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
 		String idStr = star.nextToken().trim();
+		String typeStr = star.nextToken().trim();
 		String rowStr = star.nextToken().trim();
 		String colStr = star.nextToken().trim();
 		
 		this.id= Integer.valueOf(idStr);
+		this.type = CinemaClass.valueOf(typeStr);
 		this.row = Integer.valueOf(rowStr);
 		this.col = Integer.valueOf(colStr);
 	}
@@ -43,6 +48,8 @@ public class Cinema extends AbstractEntity {
 	public String processToDBString() {
 		StringBuilder st = new StringBuilder();
 		st.append(this.id);
+		st.append(TextDB.SEPERATOR);
+		st.append(this.type);
 		st.append(TextDB.SEPERATOR);
 		st.append(this.row);
 		st.append(TextDB.SEPERATOR);

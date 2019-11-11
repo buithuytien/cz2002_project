@@ -25,8 +25,6 @@ public class MovieStaffUI extends AbstractUI {
 			this.goBack();
 			return;
 		}
-		MovieCRUD<Movie> crud = new MovieCRUD<>(Movie.class);
-		Cache.setCurrentCRUD(crud);
 		
 		switch(choice) {
 		case 0:

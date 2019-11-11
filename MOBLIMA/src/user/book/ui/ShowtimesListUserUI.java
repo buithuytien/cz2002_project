@@ -1,4 +1,4 @@
-package user.ui;
+package user.book.ui;
 
 import base.AbstractUI;
 import staff.showtimes.crud.CineplexCRUD;
