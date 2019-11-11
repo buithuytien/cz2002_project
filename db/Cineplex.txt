@@ -1,3 +1,0 @@
-1|Jurong|1 Nanyang Avenue
-2|Point|2 Nanyang Avenue
-3|NTU Cinplex|3 Nanyang Avenue

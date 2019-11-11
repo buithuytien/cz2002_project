@@ -1,8 +1,10 @@
 package base;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+
+import util.DateTimeHelper;
 
 public abstract class AbstractUI {
 	private AbstractUI prevUI;
@@ -78,7 +80,7 @@ public abstract class AbstractUI {
 		String input = sc.nextLine().trim();
 		arr.add(input);
 		while (true){
-			System.out.println("Enter next String (Enter" +terminate+ " to stop:)");
+			System.out.println("Enter next String (Enter " +terminate+ " to stop:)");
 			input = sc.nextLine().trim();
 			if (input.equals(terminate))
 				break;
@@ -88,9 +90,6 @@ public abstract class AbstractUI {
 		return arr;
 	}
 	
-<<<<<<< Updated upstream
-	
-=======
 	public String getInputDate() {
 		String dateStr = null;
 		try {
@@ -109,7 +108,6 @@ public abstract class AbstractUI {
 		}
 		return dateStr;
 	}
->>>>>>> Stashed changes
 	
 	public void goBack() {
 		if (this.prevUI == null) {

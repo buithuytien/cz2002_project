@@ -1,4 +1,4 @@
- package staff.movie.ui;
+package staff.movie.ui;
 
 import java.util.ArrayList;
 
