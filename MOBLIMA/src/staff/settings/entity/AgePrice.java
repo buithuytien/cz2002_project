@@ -58,6 +58,7 @@ public class AgePrice extends Price {
 		st.append(" to ");
 		st.append(this.endAge);
 		st.append("->");
+		st.append("Price - ");
 		st.append(this.price);
 		st.append("SGD");
 		return st.toString();

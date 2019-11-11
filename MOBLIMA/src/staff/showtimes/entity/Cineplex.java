@@ -58,15 +58,15 @@ public class Cineplex extends AbstractEntity {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
-		st.append("ID-");
+		st.append("ID - ");
 		st.append(this.id);
 		st.append(TextDB.SEPERATOR);
-		st.append("Name-");
+		st.append("Name - ");
 		st.append(this.name);
 		st.append(TextDB.SEPERATOR);
-		st.append("Location-");
+		st.append("Location - ");
 		st.append(this.location);
-		
+
 		return st.toString();
 	}
 

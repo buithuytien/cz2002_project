@@ -132,62 +132,73 @@ public class Movie extends AbstractEntity {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
+		st.append("ID - ");
 		st.append(this.id);
 		st.append(TextDB.SEPERATOR);
+		st.append("Title - ");
 		st.append(this.title);
 		st.append(TextDB.SEPERATOR);
+		st.append("Duration - ");
 		st.append(this.duration);
 		st.append(TextDB.SEPERATOR);
+		st.append("Director - ");
 		st.append(this.director);		
 		st.append(TextDB.SEPERATOR);
-		st.append(this.ticketSales);		
-		st.append(TextDB.SEPERATOR);
+		st.append("Status - ");
 		st.append(this.status.getName());
 		st.append(TextDB.SEPERATOR);
-		
+		st.append("Rating - ");
 		double rating = this.computeRating();
 		if (rating==-1)
 			st.append("NA");
 		else {
 			st.append(rating);
 		}
-		
+
 		return st.toString();
 	}
 	
 	public String toDetailedString() {
 		StringBuilder st = new StringBuilder();
+		st.append("ID - ");
 		st.append(this.id);
 		st.append("\n");
+		st.append("Title - ");
 		st.append(this.title);
 		st.append("\n");
+		st.append("Duration - ");
 		st.append(this.duration);
 		st.append("\n");
+		st.append("Status - ");
 		st.append(this.status);
 		st.append("\n");
+		st.append("MovieType - ");
 		st.append(this.type);
 		st.append("\n");
+		st.append("MovieRating - ");
 		st.append(this.movieRating);
 		st.append("\n");
+		st.append("Synopsis - ");
 		st.append(this.synopsis);
 		st.append("\n");
+		st.append("Director - ");
 		st.append(this.director);
 		st.append("\n");
-		
+		st.append("Cast - ");
 		for (int i=0; i<this.cast.size()-1; i++) {
 			st.append(this.cast.get(i));
 			st.append(ARR_SEPERATOR);
 		}
 		st.append(this.cast.get(this.cast.size()-1));
-		
 		st.append("\n");
+		st.append("Rating - ");
 		double rating = this.computeRating();
 		if (rating==-1)
 			st.append("NA");
 		else {
 			st.append(rating);
 		}
-		
+
 		return st.toString();
 	}
 

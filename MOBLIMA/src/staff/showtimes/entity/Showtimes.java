@@ -86,11 +86,14 @@ public class Showtimes extends AbstractEntity {
 	public String toString() {
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
 		StringBuilder st = new StringBuilder();
+		st.append("CinemaID-");
 		st.append(this.cinemaId);
 		st.append(TextDB.SEPERATOR);
+		st.append("Time-");
 		String timeStr = DateTimeHelper.convertTimeToString(this.time);
 		st.append(timeStr.trim());
 		st.append(TextDB.SEPERATOR);
+		st.append("Title-");
 		st.append(movieCRUD.getMovieById(this.movieId).getTitle());
 		
 		return st.toString();

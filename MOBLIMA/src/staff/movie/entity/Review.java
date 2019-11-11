@@ -61,12 +61,15 @@ public class Review extends AbstractEntity {
 		StringBuilder st = new StringBuilder();
 //		st.append(this.id);
 //		st.append("\n");
+		st.append("Username - ");
 		st.append(this.username);		
 		st.append("\n");
+		st.append("Review - ");
 		st.append(this.review);		
 		st.append("\n");
+		st.append("Rating - ");
 		st.append(this.rating);
-		
+
 		return st.toString();
 	}
 
