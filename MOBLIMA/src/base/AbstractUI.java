@@ -28,7 +28,7 @@ public abstract class AbstractUI {
 		}
 		}
 		catch(Exception e){
-			System.out.println("Wrong Input! Try again!");
+			System.out.println("Wrong Input! Please make a choice");
 			getInputChoice(lowerBound, upperBound);
 		}
 		return choice;
