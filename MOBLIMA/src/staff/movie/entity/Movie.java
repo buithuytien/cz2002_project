@@ -76,7 +76,7 @@ public class Movie extends AbstractEntity {
 		this.duration = Integer.valueOf(durationStr);
 	}
 	
-	private double computeRating() {
+	public double computeRating() {
 		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
 		return reviewCRUD.computeRating();
 	}
@@ -139,6 +139,8 @@ public class Movie extends AbstractEntity {
 		st.append(this.duration);
 		st.append(TextDB.SEPERATOR);
 		st.append(this.director);		
+		st.append(TextDB.SEPERATOR);
+		st.append(this.ticketSales);		
 		st.append(TextDB.SEPERATOR);
 		st.append(this.status.getName());
 		st.append(TextDB.SEPERATOR);
@@ -215,6 +217,10 @@ public class Movie extends AbstractEntity {
 		this.status = ShowingStatus.values()[statusChoice];
 	}
 	
+	public MovieType getType() {
+		return this.type;
+	}
+	
 	public void setType(int typeChoice) {
 		this.type = MovieType.values()[typeChoice];
 	}
@@ -241,6 +247,14 @@ public class Movie extends AbstractEntity {
 	
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+	
+	public int getTicketSales() {
+		return this.ticketSales;
+	}
+	
+	public void updateTicketSales(int sales) {
+		this.ticketSales += sales;
 	}
 	
 	public static String getFilePath() {

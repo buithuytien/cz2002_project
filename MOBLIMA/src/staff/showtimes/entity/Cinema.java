@@ -73,6 +73,10 @@ public class Cinema extends AbstractEntity {
 		return this.id;
 	}
 	
+	public CinemaClass getCinemaClass() {
+		return this.type;
+	}
+	
 	public int getRow() {
 		return this.row;
 	}

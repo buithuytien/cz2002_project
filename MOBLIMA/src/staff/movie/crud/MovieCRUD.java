@@ -1,6 +1,8 @@
 package staff.movie.crud;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import base.AbstractCRUD;
 import staff.movie.entity.Movie;
@@ -54,13 +56,22 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 		this.create((T)movie);
 	}
 	
+	public void updateTicketSales(int movieId, int sales) {
+		for (int i=0; i<getDataLength(); ++i) {
+			if (this.dataList.get(i).getId()==movieId) {
+				this.dataList.get(i).updateTicketSales(sales);
+			}
+		}
+		this.save();
+	}
+	
 	public Movie getMovie(int idx) {
 		return (Movie)this.dataList.get(idx);
 	}
 	
-	public Movie getMovieById(int id) {
+	public Movie getMovieById(int movieId) {
 		for (int i=0; i<getDataLength(); ++i) {
-			if (this.dataList.get(i).getId()==id)
+			if (this.dataList.get(i).getId()==movieId)
 				return (Movie)this.dataList.get(i);
 		}
 		
@@ -87,5 +98,49 @@ public class MovieCRUD<T extends Movie> extends AbstractCRUD<T> {
 		}
 		
 		return res;
+	}
+	
+	public void printTopRatingMovies() {
+		Collections.sort(this.dataList, new SortByRating());
+		int top = Math.min(5, getDataLength());
+		for (int i=0; i<top; ++i) {
+			System.out.println(this.dataList.get(i).toString());
+		}
+		Collections.sort(this.dataList);
+	}
+	
+	public void printTopSalesMovies() {
+		Collections.sort(this.dataList, new SortBySales());
+		int top = Math.min(5, getDataLength());
+		for (int i=0; i<top; ++i) {
+			System.out.println(this.dataList.get(i).toString());
+		}
+		Collections.sort(this.dataList);
+	}
+}
+
+class SortByRating implements Comparator<Movie> 
+{
+	public int compare(Movie a, Movie b) {
+		double aRating = a.computeRating();
+		double bRating = b.computeRating();
+		if (aRating>bRating)
+			return -1;
+		else if (aRating<bRating)
+			return 1;
+		else
+			return 0;
+	}
+}
+
+class SortBySales implements Comparator<Movie>
+{
+	public int compare(Movie a, Movie b) {
+		if (a.getTicketSales()>b.getTicketSales())
+			return -1;
+		else if (a.getTicketSales()<b.getTicketSales())
+			return 1;
+		else
+			return 0;
 	}
 }

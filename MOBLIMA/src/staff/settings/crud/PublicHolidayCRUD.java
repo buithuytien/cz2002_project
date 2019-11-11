@@ -41,14 +41,18 @@ public class PublicHolidayCRUD<T extends PublicHoliday> extends AbstractCRUD<T> 
 		return false;
 	}
 	
-	public boolean isPublicHoliday(String dateStr) {
-
-		LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
+	public boolean isPublicHoliday(LocalDate date) {
 		for (int i=0; i<this.getDataLength(); i++) {
 			if (this.dataList.get(i).match(date))
 				return true;
 		}
 		
 		return false;
+	}
+	
+	public boolean isPublicHoliday(String dateStr) {
+
+		LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
+		return this.isPublicHoliday(date);
 	}
 }

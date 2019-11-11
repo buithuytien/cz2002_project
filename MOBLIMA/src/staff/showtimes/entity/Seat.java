@@ -76,6 +76,17 @@ public class Seat {
 		}
 	}
 	
+	public int getNoSeatAvailable() {
+		int count=0;
+		for (int i=0; i<this.row; ++i) {
+			for (int j=0; j<this.col; ++j) {
+				if (!this.isTaken(i, j))
+					++count;
+			}
+		}
+		return count;
+	}
+	
 	
 	public boolean isTaken(int rowChoice, int colChoice) {
 		return this.layout[rowChoice][colChoice] == 1;
@@ -88,6 +99,18 @@ public class Seat {
 			System.out.println("Seat Occupied");
 		
 		this.saveSeat();
+	}
+	
+	public boolean isAvailableSeat(int row, int col) {
+		if (row >= this.row || col >= this.col) {
+			System.out.println("Seat Number out of range");
+			return false;
+		} else if (isTaken(row, col)) {
+			System.out.println("Seat taken");
+			return false;
+		}
+		
+		return true;
 	}
 	
 	public boolean isFull() {

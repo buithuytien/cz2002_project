@@ -16,4 +16,12 @@ public class PriceCRUD<T extends Price> extends AbstractCRUD<T> {
 		this.dataList.get(idx).setPrice(price);
 		this.save();
 	}
+	
+	public T getElementPrice(Object o) {
+		for (int i=0; i<getDataLength(); ++i) {
+			if (this.dataList.get(i).match(o))
+				return this.dataList.get(i);
+		}
+		return null;
+	}
 }

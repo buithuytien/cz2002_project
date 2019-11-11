@@ -106,6 +106,10 @@ public class Showtimes extends AbstractEntity {
 		return Showtimes.date;
 	}
 	
+	public static int getCineplexId() {
+		return Showtimes.cineplexId;
+	}
+	
 	public int getCinemaId() {
 		return this.cinemaId;
 	}
@@ -124,8 +128,20 @@ public class Showtimes extends AbstractEntity {
 			System.out.println("No seat available");
 	}
 	
+	public int getNoSeatAvailable() {
+		return this.seat.getNoSeatAvailable();
+	}
+	
 	public boolean isFull() {
 		return this.seat.isFull();
+	}
+	
+	public boolean isAvailableSeat(int row, int col) {
+		return this.seat.isAvailableSeat(row, col);
+	}
+	
+	public void takeSeat(int row, int col) {
+		this.seat.takeSeat(row, col);
 	}
 	
 	public static void setFileName(int cineplexId, String dateStr) {
