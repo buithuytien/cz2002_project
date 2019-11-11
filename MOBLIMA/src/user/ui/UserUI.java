@@ -2,6 +2,8 @@ package user.ui;
 
 import base.AbstractUI;
 import cache.Cache;
+import staff.movie.crud.MovieCRUD;
+import staff.movie.entity.Movie;
 import staff.movie.ui.MovieListUI;
 import user.book.ui.ShowtimesListUserUI;
 
@@ -32,6 +34,8 @@ public class UserUI extends AbstractUI {
 
 		switch(choice) {
 		case 0:
+			MovieCRUD<Movie> crud = new MovieCRUD<>(Movie.class);
+			Cache.setCurrentCRUD(crud);
 			this.intent(new MovieListUI());
 
 			break;
