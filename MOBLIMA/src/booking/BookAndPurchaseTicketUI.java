@@ -1,6 +1,17 @@
 package booking;
 
 import base.AbstractUI;
+<<<<<<< Updated upstream
+=======
+import staff.settings.crud.PriceCRUD;
+import staff.settings.entity.AgePrice;
+
+import java.time.*;
+import java.util.EnumSet;
+import java.util.Set;
+
+import util.DateTimeHelper;
+>>>>>>> Stashed changes
 
 public class BookAndPurchaseTicketUI extends AbstractUI {
 	int basicPrice = 0;
@@ -14,6 +25,7 @@ public class BookAndPurchaseTicketUI extends AbstractUI {
 	@Override
 	public void start(){ // just sum
 		
+<<<<<<< Updated upstream
 		System.out.println("please input date in DD/MM/YYYY format: ");
 		
 		
@@ -104,12 +116,53 @@ public class BookAndPurchaseTicketUI extends AbstractUI {
 		
 		
 		
+=======
+		System.out.println("please input date in D-MM-YYYY format: ");
+		String dateStr = this.getInputString();
+	    LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
+		
+		DayOfWeek dow = date.getDayOfWeek();
+		Set<DayOfWeek> weekend = EnumSet.of( DayOfWeek.SATURDAY , DayOfWeek.SUNDAY );
+		Boolean todayIsWeekend = weekend.contains( dow );
+		
+		if (todayIsWeekend) {
+			
+			
+		}
+		else {
+			
+			
+			
+		}
+		
+		int age = this.getInputInteger();
+		
+	//	PriceCRUD<AgePrice> priceCRUD = new PriceCRUD<>();
+	//	double price = priceCRUD.getPrice(age);
+
+	
+		System.out.println("The total ticket price is: ");
+		System.out.println("Do you want to proceed to purchase? (Y/N) ");
+		
+	
+		
+		
+		
+
+	}
+	
+	
+>>>>>>> Stashed changes
 		
 		
 	}
 	
 	
 	
+<<<<<<< Updated upstream
 	
 	
 }
+=======
+	
+>>>>>>> Stashed changes
