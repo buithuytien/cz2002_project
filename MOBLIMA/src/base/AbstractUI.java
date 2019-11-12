@@ -92,9 +92,12 @@ public abstract class AbstractUI {
 	
 	public String getInputDate() {
 		String dateStr = null;
+		
 		try {
 		while (true) {
-			System.out.println("Enter date in "+DateTimeHelper.DATE_FORMAT);
+			
+			System.out.println("Enter date in "+ DateTimeHelper.DATE_FORMAT);
+			System.out.flush();
 			dateStr = this.getInputString();
 			LocalDate date = DateTimeHelper.convertStringToDate(dateStr);
 			if (DateTimeHelper.fromToday(date))
