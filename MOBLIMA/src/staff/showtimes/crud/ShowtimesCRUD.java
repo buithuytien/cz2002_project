@@ -62,7 +62,7 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 	public void printShowtimesListByMovie() {
 		ArrayList<Showtimes> res = this.getShowtimesListByMovie();
 
-		for (int i=0; i<this.getDataLength(); ++i) {
+		for (int i=0; i<res.size(); ++i) {
 			System.out.println(res.get(i).toString());
 		}
 	}

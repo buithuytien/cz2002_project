@@ -1,4 +1,4 @@
-2|Star War|NOW_SHOWING|THREE_D|NC_17|Nice|Nothan|0|James,Corden|150
+2|Star War|NOW_SHOWING|THREE_D|NC_17|Nice|Nothan|2|James,Corden|150
 3|The End|NOW_SHOWING|NORMAL|G|End|Mr Awesome|3|Nhan|90
 1|Terminator|PREVIEW|NORMAL|PG|Nice|Nhan|0|Nhan Awesome,Nhan even more awesome|120
 6|fake|COMING_SOON|NORMAL|NC_17|gfhgfgfjgfjfkgf|gfgfg|0|gfgfgfgfg,gfgfg,gfgf|87
