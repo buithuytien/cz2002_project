@@ -191,6 +191,9 @@ public class Movie extends AbstractEntity {
 		}
 		st.append(this.cast.get(this.cast.size()-1));
 		st.append("\n");
+		st.append("Ticket Sales - ");
+		st.append(this.ticketSales);
+		st.append("\n");
 		st.append("Rating - ");
 		double rating = this.computeRating();
 		if (rating==-1)
