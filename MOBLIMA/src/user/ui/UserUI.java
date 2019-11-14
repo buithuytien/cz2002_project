@@ -7,7 +7,7 @@ import staff.movie.entity.Movie;
 import staff.movie.ui.MovieListUI;
 import user.book.crud.BookingCRUD;
 import user.book.entity.Booking;
-import user.book.ui.ShowtimesListUserUI;
+import user.book.ui.ShowtimesListUI;
 import user.movie.ui.ListTopMoviesUI;
 
 public class UserUI extends AbstractUI {
@@ -43,7 +43,7 @@ public class UserUI extends AbstractUI {
 
 			break;
 		case 1:
-			this.intent(new ShowtimesListUserUI());
+			this.intent(new ShowtimesListUI());
 			break;
 		case 2:
 			BookingCRUD<Booking> bookingCRUD = new BookingCRUD<>(Booking.class);
