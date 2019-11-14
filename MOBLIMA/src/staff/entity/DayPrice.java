@@ -6,11 +6,26 @@ import base.AbstractEntity;
 import staff.entity.enums.DayType;
 import util.TextDB;
 
+/**
+ * DayPrice inherits Price
+ * @author Ronald
+ *
+ */
 public class DayPrice extends Price {
+	/**
+	 * methods to declare strings
+	 */
 	public static String directoryName="Price";
 	public static String fileName="DayPrice.txt";
+	/**
+	 * constructor for the different enumerations in DayType
+	 */
 	private DayType dayType;
 	
+	/**
+	 * stores the dayType and price of each type of day in a text file
+	 * @param raw
+	 */
 	public DayPrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -58,6 +73,10 @@ public class DayPrice extends Price {
 		return true;
 	}
 
+	/**
+	 * method to get file path
+	 * @return
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

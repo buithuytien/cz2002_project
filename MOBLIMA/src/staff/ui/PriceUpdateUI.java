@@ -4,6 +4,11 @@ import base.AbstractUI;
 import cache.Cache;
 import staff.crud.PriceCRUD;
 
+/**
+ * PriceUpdateUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class PriceUpdateUI extends AbstractUI {
 
 	@Override
@@ -20,6 +25,11 @@ public class PriceUpdateUI extends AbstractUI {
 		this.run(choice, price);
 	}
 	
+	/**
+	 * method to edit the price of the different variables depending on choice in PriceChangeUI
+	 * @param choice
+	 * @param price
+	 */
 	private void run(int choice, double price) {
 		PriceCRUD crud = (PriceCRUD) Cache.getCurrentCRUD();
 		crud.update(choice, price);

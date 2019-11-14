@@ -4,14 +4,28 @@ import java.util.StringTokenizer;
 
 import base.AbstractEntity;
 import util.TextDB;
-
+/**
+ * AgePrice inherits Price
+ * @author Ronald
+ *
+ */
 public class AgePrice extends Price {
+	/**
+	 * method to declare the strings
+	 */
 	public static String directoryName="Price";
 	public static String fileName="AgePrice.txt";
+	/**
+	 * startAge is the lower bound while endAge is the upper bound of the age range
+	 * that is charged at a certain price
+	 */
 	private int startAge;
 	private int endAge;
 	
-
+	/**
+	 * stores the startAge, endAge and price in a text file
+	 * @param raw
+	 */
 	public AgePrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -69,10 +83,18 @@ public class AgePrice extends Price {
 		return false;
 	}
 
+	/**
+	 * method to get the startAge
+	 * @return
+	 */
 	public int getStartAge() {
 		return this.startAge;
 	}
 	
+	/**
+	 * method to get the file path
+	 * @return
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

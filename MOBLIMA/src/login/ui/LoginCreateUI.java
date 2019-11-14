@@ -5,8 +5,14 @@ import cache.Cache;
 import login.crud.AccountCRUD;
 import login.entity.Account;
 
+/**
+ * LoginCreateUI inherits AbstractUI
+ * @author Ronald
+ */
 public class LoginCreateUI extends AbstractUI {
-
+	/**
+	 * constructor
+	 */
 	public LoginCreateUI() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,6 +30,12 @@ public class LoginCreateUI extends AbstractUI {
 		this.run(username, password);
 	}
 	
+	/**
+	 * create an account with the username and password input
+	 * 2 accounts with the same username is not allowed
+	 * @param username
+	 * @param password
+	 */
 	public void run(String username, String password) {
 		AccountCRUD crud = (AccountCRUD) Cache.getCurrentCRUD();
 		try {

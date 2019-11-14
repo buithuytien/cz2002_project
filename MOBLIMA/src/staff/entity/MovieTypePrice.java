@@ -6,11 +6,26 @@ import base.AbstractEntity;
 import staff.entity.enums.MovieType;
 import util.TextDB;
 
+/**
+ * MovieTypePrice inherits Price 
+ * @author Ronald
+ *
+ */
 public class MovieTypePrice extends Price {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="Price";
 	public static String fileName="MovieTypePrice.txt";
+	/**
+	 * constructor for the different enumerations in MovieType
+	 */
 	private MovieType movieType;
 	
+	/**
+	 * stores the price of each type of movie in a text file
+	 * @param raw
+	 */
 	public MovieTypePrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -21,6 +36,7 @@ public class MovieTypePrice extends Price {
 		this.price = Double.valueOf(priceStr);
 	};
 	
+	@Override
 	public boolean match(Object o) {
 		return this.movieType.equals((MovieType)o);
 	}
@@ -57,6 +73,10 @@ public class MovieTypePrice extends Price {
 		return true;
 	}
 
+	/**
+	 * method to get file path
+	 * @return
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

@@ -8,8 +8,16 @@ import staff.entity.CinemaClassPrice;
 import staff.entity.DayPrice;
 import staff.entity.MovieTypePrice;
 
+/**
+ * PriceChangeUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class PriceChangeUI extends AbstractUI {
 
+	/**
+	 * constructor
+	 */
 	public PriceChangeUI() {
 		// TODO Auto-generated constructor stub
 	}
@@ -29,6 +37,15 @@ public class PriceChangeUI extends AbstractUI {
 		this.run(choice);
 	}
 
+	/**
+	 * method for user to choose an option to carry out
+	 * choice '0' creates a new object with the input as the new price for the given movie type
+	 * choice '1' creates a new object with the input as the new price for the given cinema class
+	 * choice '2' creates a new object with the input as the new price for the given age range
+	 * choice '3' creates a new object with the input as the new price for the given day type
+	 * choice '4' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		switch (choice) {
 		case 0:

@@ -8,13 +8,35 @@ import java.util.StringTokenizer;
 import base.AbstractEntity;
 import util.TextDB;
 
+/**
+ * PublicHoliday inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class PublicHoliday extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="";
 	public static String fileName="PublicHoliday.txt";
+	/**
+	 * method to declare the format of the string for the date
+	 */
 	public static final String FORMAT="dd/MM/yyyy";
+	/**
+	 * date of the holiday
+	 */
 	private Date date;
+	/**
+	 * name of the holiday
+	 */
 	private String name;
 	
+	/**
+	 * method to handle exceptions where format of date is entered wrongly 
+	 * @param dateStr
+	 * @param name
+	 */
 	public PublicHoliday(String dateStr, String name) {
 		try {
 			this.date = new SimpleDateFormat(FORMAT).parse(dateStr);
@@ -25,6 +47,10 @@ public class PublicHoliday extends AbstractEntity {
 		this.name = name;
 	}
 	
+	/**
+	 * method to store the date and name of the holiday in a text file
+	 * @param raw
+	 */
 	public PublicHoliday(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -48,6 +74,13 @@ public class PublicHoliday extends AbstractEntity {
 			return -1;
 	}
 
+	/**
+	 * to check if date entered is a saved public holiday
+	 * return true if the date matches the data saved in the text file
+	 * return false if the date does not match the date saved in the text file
+	 * @param date
+	 * @return
+	 */
 	public boolean match(Date date) {
 		return this.date.equals(date);
 	}
@@ -76,10 +109,18 @@ public class PublicHoliday extends AbstractEntity {
 		return false;
 	}
 
+	/**
+	 * method to get the date of saved holiday
+	 * @return
+	 */
 	public Date getDate() {
 		return this.date;
 	}
 	
+	/**
+	 * method to get file path
+	 * @return
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

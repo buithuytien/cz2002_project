@@ -1,13 +1,25 @@
 package base;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * abstract class AbstractUI
+ * composition of AbstractCRUD and AbstractEntity
+ * @author Ronald
+ *
+ */
 public abstract class AbstractUI {
+	/**
+	 * to save the previous menu accessed
+	 */
 	private AbstractUI prevUI;
 	
-	
+	/**
+	 * abstract method to initialize selected menu
+	 * to be override
+	 */
 	public abstract void start();
+	
 	
 	public int getInputChoice(int lowerBound, int upperBound) {
 		Scanner sc = new Scanner(System.in);

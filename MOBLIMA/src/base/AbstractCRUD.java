@@ -1,12 +1,12 @@
 package base;
 
-import util.TextDB;
-
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import util.TextDB;
+
 
 public abstract class AbstractCRUD <T extends AbstractEntity> {
 	protected ArrayList<T> dataList;

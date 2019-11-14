@@ -2,8 +2,14 @@ package login.ui;
 
 import base.AbstractUI;
 
+/**
+ * LoginCRUDUI inherits AbstractUI
+ * @author Ronald
+ */
 public class LoginCRUDUI extends AbstractUI {
-
+	/**
+	 * constructor
+	 */
 	public LoginCRUDUI() {
 		// TODO Auto-generated constructor stub
 	}
@@ -20,7 +26,12 @@ public class LoginCRUDUI extends AbstractUI {
 		
 		this.run(choice);
 	}
-	
+	/**
+	 * case '0' display LoginCreateUI menu
+	 * case '1' display menu enter username and password
+	 * case '2' go back to previous menu, LoginUI
+	 * @param choice
+	 */
 	public void run(int choice) {
 		switch(choice) {
 			case 0:

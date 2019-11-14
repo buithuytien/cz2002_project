@@ -3,8 +3,16 @@ package login.ui;
 import base.AbstractUI;
 import cache.Cache;
 
+/**
+ * UserUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class UserUI extends AbstractUI {
 
+	/**
+	 * constructor
+	 */
 	public UserUI() {
 		// TODO Auto-generated constructor stub
 	}
