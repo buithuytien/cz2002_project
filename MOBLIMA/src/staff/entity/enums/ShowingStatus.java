@@ -2,7 +2,7 @@ package staff.entity.enums;
 
 public enum ShowingStatus {
 	COMING_SOON("Coming Soon",2), PREVIEW("Preview",1), 
-		NOW_SHOWING("Now Showing",0), END_SHOWING("End of Showing",3);
+		NOW_SHOWING("Now Showing",0), END_SHOWING("Past Movie",3);
 	private String nameStr;
 	private int priority;
 	ShowingStatus(String nameStr, int priority) {

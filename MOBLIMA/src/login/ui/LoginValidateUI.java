@@ -21,7 +21,7 @@ public class LoginValidateUI extends AbstractUI {
 		System.out.println("Enter your username:");
 		String username = getInputString();
 		
-		System.out.println("Enter your password");
+		System.out.println("Enter your password:");
 		String password = getInputString();
 		
 		this.run(username, password);

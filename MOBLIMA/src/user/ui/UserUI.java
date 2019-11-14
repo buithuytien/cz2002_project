@@ -22,7 +22,7 @@ public class UserUI extends AbstractUI {
 		System.out.println("0: Search/List movie");
 		System.out.println("1: Choose Timeslots ");
 		System.out.println("2: View booking history");
-		System.out.println("3: List the Top 5 ranking by ticket sales OR by overall reviewers’ ratings ");
+		System.out.println("3: List the Top 5 ranking by ticket sales OR by overall reviewers' ratings ");
 		System.out.println("4: Exit");
 
 		int choice = this.getInputChoice(0, 6);
