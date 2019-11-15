@@ -80,7 +80,7 @@ public class BookAndPurchaseUI extends AbstractUI {
 		for (int i=0; i< choice; ++i) {
 			System.out.println();
 			this.showtimes.viewSeat();
-			System.out.println("Please choose your seat (eg A1):");
+			System.out.println("Please choose your seat (e.g. A1):");
 			int[] seat = this.getInputSeat();
 			
 			this.showtimes.takeSeat(seat[0], seat[1]);

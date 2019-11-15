@@ -18,7 +18,7 @@ public class LoginCreateUI extends AbstractUI {
 		System.out.println("Enter your username:");
 		String username = getInputString();
 		
-		System.out.println("Enter your password");
+		System.out.println("Enter your password:");
 		String password = getInputString();
 		
 		this.run(username, password);
@@ -32,7 +32,7 @@ public class LoginCreateUI extends AbstractUI {
 				System.out.println("Existing username!!");
 			} else {
 				crud.create(acc);
-				System.out.println("Create successfully");
+				System.out.println("Created successfully");
 			}
 			this.goBack();
 		} catch (Exception e) {

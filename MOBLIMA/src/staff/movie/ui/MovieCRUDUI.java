@@ -75,7 +75,7 @@ public class MovieCRUDUI extends AbstractUI {
 		System.out.println("Enter Cast:");
 		ArrayList<String> cast = this.getInputListString();
 		
-		System.out.println("Enter duration in Minute:");
+		System.out.println("Enter duration in Minutes:");
 		int duration = this.getInputInteger();
 		
 		this.runCreate(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);

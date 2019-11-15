@@ -39,7 +39,7 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		System.out.println("Enter Showing Date");
 		String dateStr = this.getInputDate();
 		
-		System.out.println("Enter Start Time:");
+		System.out.println("Enter Movie Start Time:");
 		String timeStr = this.getInputTime(dateStr, movie.getDuration());
 		
 		this.run(cineplex, dateStr, cinema, timeStr, movie);

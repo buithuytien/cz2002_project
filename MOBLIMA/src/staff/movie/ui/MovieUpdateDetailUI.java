@@ -83,12 +83,12 @@ public class MovieUpdateDetailUI extends AbstractUI {
 			this.movie.setCast(cast);
 			break;
 		case 7:
-			System.out.println("Enter duration in Minute:");
+			System.out.println("Enter duration in Minutes:");
 			int duration = this.getInputInteger();
 			this.movie.setDuration(duration);
 			break;
 		}
-		System.out.println("Update successfully");
+		System.out.println("Updated successfully");
 		crud.save();
 		this.start();
 	}
