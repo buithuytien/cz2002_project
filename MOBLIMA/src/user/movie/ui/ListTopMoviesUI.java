@@ -10,9 +10,9 @@ public class ListTopMoviesUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : List Top 5 By Overall Rating");
-		System.out.println("1 : List Top 5 By Ticket Sales");
-		System.out.println("2 : Back");
+		System.out.println("0 : List top 5 movies by overall rating");
+		System.out.println("1 : List top 5 movies by ticket sales");
+		System.out.println("2 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 2);
 		this.run(choice);

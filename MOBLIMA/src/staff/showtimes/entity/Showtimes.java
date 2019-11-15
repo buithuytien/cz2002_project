@@ -86,14 +86,14 @@ public class Showtimes extends AbstractEntity {
 	public String toString() {
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
 		StringBuilder st = new StringBuilder();
-		st.append("CinemaID-");
+		st.append("CinemaID - ");
 		st.append(this.cinemaId);
 		st.append(TextDB.SEPERATOR);
-		st.append("Time-");
+		st.append("Time - ");
 		String timeStr = DateTimeHelper.convertTimeToString(this.time);
 		st.append(timeStr.trim());
 		st.append(TextDB.SEPERATOR);
-		st.append("Title-");
+		st.append("Title - ");
 		st.append(movieCRUD.getMovieById(this.movieId).getTitle());
 		
 		return st.toString();
@@ -128,7 +128,7 @@ public class Showtimes extends AbstractEntity {
 	public void viewSeat() {
 		this.seat.viewSeat();
 		if (this.seat.isFull())
-			System.out.println("No seat available");
+			System.out.println("No seat is available!");
 	}
 	
 	public int getNoSeatAvailable() {

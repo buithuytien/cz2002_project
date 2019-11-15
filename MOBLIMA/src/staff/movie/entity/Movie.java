@@ -144,7 +144,7 @@ public class Movie extends AbstractEntity {
 		st.append("Director - ");
 		st.append(this.director);		
 		st.append(TextDB.SEPERATOR);
-		st.append("Status - ");
+		st.append("Showing status - ");
 		st.append(this.status.getName());
 		st.append(TextDB.SEPERATOR);
 		st.append("Rating - ");
@@ -169,13 +169,13 @@ public class Movie extends AbstractEntity {
 		st.append("Duration - ");
 		st.append(this.duration);
 		st.append("\n");
-		st.append("Status - ");
+		st.append("Showing status - ");
 		st.append(this.status);
 		st.append("\n");
-		st.append("MovieType - ");
+		st.append("Movie Type - ");
 		st.append(this.type);
 		st.append("\n");
-		st.append("MovieRating - ");
+		st.append("Movie Rating - ");
 		st.append(this.movieRating);
 		st.append("\n");
 		st.append("Synopsis - ");

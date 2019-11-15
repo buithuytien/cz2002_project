@@ -18,11 +18,11 @@ public class PriceChangeUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : Movie Type");
-		System.out.println("1 : Cinema Class");
-		System.out.println("2 : Age");
-		System.out.println("3 : Day Type");
-		System.out.println("4 : Back");
+		System.out.println("0 : Change prices of movie types");
+		System.out.println("1 : Change prices of cinema classes");
+		System.out.println("2 : Change prices of age groups");
+		System.out.println("3 : Change prices of day types");
+		System.out.println("4 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 4);
 		

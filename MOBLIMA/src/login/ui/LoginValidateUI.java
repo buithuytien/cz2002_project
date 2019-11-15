@@ -32,7 +32,7 @@ public class LoginValidateUI extends AbstractUI {
 		try {
 			Account acc = crud.createAccount(username, password);
 			if (crud.validate(acc)) {
-				System.out.println("Login Successfully");
+				System.out.println("Login successful!");
 				Cache.setUserName(acc.getUsername());
 				if (acc instanceof UserAccount) {
 					this.intent(new UserUI());
@@ -42,7 +42,7 @@ public class LoginValidateUI extends AbstractUI {
 					this.intent(new StaffUI());
 				}
 			} else {
-				System.out.println("Wrong login info");
+				System.out.println("Wrong login info entered! Please try again.");
 				this.goBack();
 			}
 			

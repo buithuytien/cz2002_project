@@ -23,11 +23,11 @@ public abstract class AbstractUI {
 				if (choice>=lowerBound && choice<=upperBound) {
 					break;
 				} else {
-					System.out.println("Wrong Input! Try again!");
+					System.out.println("Wrong input! Please try again!");
 				}
 			}
 		} catch (Exception e) {
-			System.out.println("Wrong Input! Please make a choice");
+			System.out.println("Wrong input! Please make a choice!");
 			return getInputChoice(lowerBound, upperBound);
 		}
 		
@@ -40,7 +40,7 @@ public abstract class AbstractUI {
 		try {
 			input = sc.nextLine().trim();
 		} catch(Exception e) {
-			System.out.println("Wrong Input! Try again!");
+			System.out.println("Wrong input! Please try again!");
 			return getInputString();
 		}
 		
@@ -53,7 +53,7 @@ public abstract class AbstractUI {
 		try {
 			 input = sc.nextDouble();
 		 } catch(Exception e) {
-			System.out.println("Wrong Input! Try again!");
+			System.out.println("Wrong input! Please try again!");
 			return getInputDouble();
 		}
 		return input;
@@ -65,7 +65,7 @@ public abstract class AbstractUI {
 		try {
 			 input = sc.nextInt();
 		} catch(Exception e) {
-			System.out.println("Wrong Input! Try again!");
+			System.out.println("Wrong input! Try again!");
 			return getInputInteger();
 		}
 		
@@ -101,7 +101,7 @@ public abstract class AbstractUI {
 				System.out.println("Input date from today");
 			}
 		} catch (Exception e) {
-			System.out.println("Wront Input! Try Again");
+			System.out.println("Wront input! Please try Again");
 			return this.getInputDate();
 		}
 		return dateStr;

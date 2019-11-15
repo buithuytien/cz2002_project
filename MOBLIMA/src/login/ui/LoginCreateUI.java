@@ -29,10 +29,10 @@ public class LoginCreateUI extends AbstractUI {
 		try {
 			Account acc = crud.createAccount(username, password);
 			if (crud.isExist(acc)) {
-				System.out.println("Existing username!!");
+				System.out.println("Username already exists!");
 			} else {
 				crud.create(acc);
-				System.out.println("Created successfully");
+				System.out.println("Account created successfully!");
 			}
 			this.goBack();
 		} catch (Exception e) {

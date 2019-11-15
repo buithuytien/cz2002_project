@@ -31,15 +31,15 @@ public class BookAndPurchaseUI extends AbstractUI {
 		// TODO Auto-generated method stub
 		System.out.println();
 		if (showtimes.isFull()) {
-			System.out.println("No seat available!");
+			System.out.println("No seats are available!");
 			this.home();
 			return;
 		}
 		
-		System.out.println("Seat available:");
+		System.out.println("Seats available:");
 		this.showtimes.viewSeat();
-		System.out.println("0 : Proceed to book");
-		System.out.println("1 : Back to Home");
+		System.out.println("0 : Proceed with booking");
+		System.out.println("1 : Back to menu");
 		
 		int choice = this.getInputChoice(0, 1);
 		this.run(choice);
@@ -60,9 +60,9 @@ public class BookAndPurchaseUI extends AbstractUI {
 		System.out.println();
 		System.out.println("Enter your name:");
 		String name = this.getInputString();
-		System.out.println("Mobile:");
+		System.out.println("Enter your mobile number:");
 		int number = this.getInputInteger();
-		System.out.println("Email:");
+		System.out.println("Enter your email:");
 		String email = this.getInputString();
 	}
 	
@@ -70,7 +70,7 @@ public class BookAndPurchaseUI extends AbstractUI {
 		this.startInfo();
 		System.out.println();
 		int maxNoSeat = this.showtimes.getNoSeatAvailable();
-		System.out.println("How many tickets you want to purchase (Max:"+maxNoSeat+"):");
+		System.out.println("How many tickets do you want to purchase? (Max:"+maxNoSeat+"):");
 		int choice = this.getInputChoice(1, maxNoSeat);
 		
 
@@ -80,11 +80,11 @@ public class BookAndPurchaseUI extends AbstractUI {
 		for (int i=0; i< choice; ++i) {
 			System.out.println();
 			this.showtimes.viewSeat();
-			System.out.println("Please choose your seat (e.g. A1):");
+			System.out.println("Please choose your seat(s) (e.g. A1):");
 			int[] seat = this.getInputSeat();
 			
 			this.showtimes.takeSeat(seat[0], seat[1]);
-			System.out.println("Enter Movie-goer's Age:");
+			System.out.println("Enter movie-goer's age:");
 			int age = this.getInputInteger();
 			ageArray[i] = age;
 		}
@@ -103,7 +103,7 @@ public class BookAndPurchaseUI extends AbstractUI {
 		}
 		System.out.println("----------------");
 		System.out.println("Total Price: "+totalPrice);
-		System.out.println("Transaction successfully");
+		System.out.println("Transaction successful! Thank you for booking with MOBLIMA!");
 		
 		// Create Booking History
 		BookingCRUD<Booking> bookingCRUD = new BookingCRUD<>(Booking.class);
@@ -162,7 +162,7 @@ public class BookAndPurchaseUI extends AbstractUI {
 		while (true) {
 			input = this.getInputString();
 			if (!input.matches("[A-Z]\\d+")) {
-				System.out.println("Wrong Format! Try again:");
+				System.out.println("Wrong format! Please try again:");
 				continue;
 			}
 			int row = (int)input.charAt(0) - A;

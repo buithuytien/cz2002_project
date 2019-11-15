@@ -12,9 +12,9 @@ public class LoginCRUDUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0: Create Account");
-		System.out.println("1: Login");
-		System.out.println("2: Back");
+		System.out.println("0 : Create an account");
+		System.out.println("1 : Login");
+		System.out.println("2 : Back to previous menu");
 		
 		int choice = getInputChoice(0,2);
 		

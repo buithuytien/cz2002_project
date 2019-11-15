@@ -23,7 +23,7 @@ public class PriceUpdateUI extends AbstractUI {
 	private void run(int choice, double price) {
 		PriceCRUD crud = (PriceCRUD) Cache.getCurrentCRUD();
 		crud.update(choice, price);
-		System.out.println("Update Successfully");
+		System.out.println("Price updated successfully!");
 		this.goBack();
 	}
 
