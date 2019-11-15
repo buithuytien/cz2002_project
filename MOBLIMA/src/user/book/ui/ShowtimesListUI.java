@@ -11,7 +11,7 @@ import staff.showtimes.crud.ShowtimesCRUD;
 import staff.showtimes.entity.Cineplex;
 import staff.showtimes.entity.Showtimes;
 
-public class ShowtimesListUserUI extends AbstractUI {
+public class ShowtimesListUI extends AbstractUI {
 
 	@Override
 	public void start() {

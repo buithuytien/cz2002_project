@@ -125,32 +125,64 @@ public class Seat {
 
 	public void viewSeat() {
 		char x='A';
+		int mid = this.col/3+this.col%3;
+		int left, right;
+		left = right = this.col/3;
+		int len = 3 + (2*left-1) + 2 + (2*mid-1) + 2 + (2*right-1) +3;
 		String available = "O";
 		String taken = "X";
-		System.out.println("-----------------------------------------------");
-		System.out.println("                    Screen                    ");
-		System.out.print("  ");
+		
+		for (int i=0; i<len; ++i) 
+			System.out.print("-");
+		System.out.println();
+		
+		for (int i=0; i<len/2-3; ++i)
+			System.out.print(" ");
+		System.out.println("Screen");
+		
+		System.out.println();
+		// Print seat number
+		for (int i=0; i<3; ++i) {
+			System.out.print(" ");
+		}
 		for (int i=0; i<this.col; ++i) {
 			System.out.print(i+" ");
+			if (i==left-1)
+				System.out.print(" ");
+			if (i==left+mid-1)
+				System.out.print(" ");
 		}
+		
 		System.out.println();
 		
 		for (int i=0; i<this.row; ++i) {
 			System.out.print(Character.toString((char)(x+i)) + " ");
+			System.out.print(" ");
 			for (int j=0; j<this.col; ++j) {
 				if (this.layout[i][j]==0)
 					System.out.print(available+" ");
 				else
 					System.out.print(taken+" ");
+				if (j==left-1)
+					System.out.print(" ");
+				if (j==left+mid-1)
+					System.out.print(" ");
 			}
 			System.out.println();
 		}
 		
-		System.out.println("                    |Entrance|                    ");
-		System.out.println("--------------------------------------------------");
+		System.out.println();
+		for (int i=0; i<len/2-4; ++i)
+			System.out.print(" ");
+		System.out.println("Entrance");
+		
+		for (int i=0; i<len; ++i) 
+			System.out.print("-");
+		System.out.println();
 		System.out.println("LEGEND");
 		System.out.println("Seat Available: "+available);
 		System.out.println("Seat Taken: "+taken);
 		
 	}
+	
 }
