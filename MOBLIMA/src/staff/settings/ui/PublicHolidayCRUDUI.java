@@ -13,10 +13,10 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : Create Public Holiday");
-		System.out.println("1 : List Public Holiday");
-		System.out.println("2 : Delete Public Holida");
-		System.out.println("3 : Back");
+		System.out.println("0 : Create a public holiday");
+		System.out.println("1 : List all public holidays");
+		System.out.println("2 : Delete a public holiday");
+		System.out.println("3 : Back to previous menu");
 		int choice = this.getInputChoice(0, 3);
 		
 		this.run(choice);
@@ -43,7 +43,7 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		System.out.println();
 		System.out.println("Enter the date in format " + DateTimeHelper.DATE_FORMAT);
 		String dateStr = this.getInputString();
-		System.out.println("Enter the name of Public Holiday");
+		System.out.println("Enter the name of the public holiday");
 		String name = this.getInputString();
 		
 		this.runCreate(dateStr, name);
@@ -53,10 +53,10 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		PublicHolidayCRUD crud = (PublicHolidayCRUD) Cache.getCurrentCRUD();
 		PublicHoliday obj = crud.createPublicHoliday(dateStr, name);
 		if (crud.isExist(obj))
-			System.out.println("Public Holiday Date exist!");
+			System.out.println("There is already a public holiday created on this date!");
 		else {
 			crud.create(obj);
-			System.out.println("Create Public Holiday Successfully");
+			System.out.println("Public holiday created successfully!");
 		}
 		this.start();
 	}

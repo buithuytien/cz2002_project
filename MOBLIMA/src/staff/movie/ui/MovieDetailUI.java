@@ -12,10 +12,10 @@ public class MovieDetailUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : Movie Details");
-		System.out.println("1 : Movie Review");
-		System.out.println("2 : Add your review");
-		System.out.println("3 : Back");
+		System.out.println("0 : View movie details");
+		System.out.println("1 : View movie reviews");
+		System.out.println("2 : Add your own review");
+		System.out.println("3 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 3);
 		this.run(choice);
@@ -33,7 +33,7 @@ public class MovieDetailUI extends AbstractUI {
 			break;
 		case 2:
 			if (this.movie.checkReviewExist()) {
-				System.out.println("You already input review for this movie");
+				System.out.println("You have already given a review for this movie!");
 			} else {
 				System.out.println("Enter your review:");
 				String review = this.getInputString();

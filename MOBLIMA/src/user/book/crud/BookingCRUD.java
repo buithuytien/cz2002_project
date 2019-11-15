@@ -20,7 +20,7 @@ public class BookingCRUD<T extends Booking> extends AbstractCRUD<T> {
 	}
 	
 	public void printHistoryBooking(String username) {
-		System.out.println("Booking history of username "+username);
+		System.out.println("Booking history of user "+username);
 		for (int i=0; i<getDataLength(); ++i) {
 			if (this.dataList.get(i).getUsername().equals(username)) {
 				System.out.println(this.dataList.get(i).toString());

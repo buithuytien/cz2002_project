@@ -17,10 +17,10 @@ public class StaffUI extends AbstractUI {
 		// TODO Auto-generated method stub
 		System.out.println();
 		System.out.println("Welcome staff "+Cache.getUsername());
-		System.out.println("0 : View/Create/Update/Remove Movie Listing");
+		System.out.println("0 : View/Create/Update/Remove movie listing");
 		System.out.println("1 : Create/Update/Remove cinema showtimes");
 		System.out.println("2 : Configure system settings");
-		System.out.println("3 : Exit");
+		System.out.println("3 : Exit MOBLIMA");
 		
 		int choice = this.getInputChoice(0, 3);
 		

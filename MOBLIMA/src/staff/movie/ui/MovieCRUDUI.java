@@ -16,9 +16,9 @@ public class MovieCRUDUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : Create Movie");
-		System.out.println("1 : Update Movie");
-		System.out.println("2 : Back");
+		System.out.println("0 : Create movie");
+		System.out.println("1 : Update movie");
+		System.out.println("2 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 2);
 		this.run(choice);
@@ -46,36 +46,36 @@ public class MovieCRUDUI extends AbstractUI {
 		System.out.println("Enter Movie ID: ");
 		int id = this.getInputInteger();
 		if (crud.checkExistenceId(id)) {
-			System.out.println("ID already exist! Try Again!");
+			System.out.println("ID already exists! Please try again!");
 			this.startCreate();
 			return;
 		}
 		
-		System.out.println("Enter Movie Title: ");
+		System.out.println("Enter movie title: ");
 		String title = this.getInputString();
 		
-		System.out.println("Showing Status: ");
+		System.out.println("Showing status: ");
 		int noStatusChoice = ShowingStatus.printChoices();
 		int statusChoice = this.getInputChoice(0, noStatusChoice-1);
 		
-		System.out.println("Movie Type: ");
+		System.out.println("Movie type: ");
 		int noTypeChoice = MovieType.printChoices();
 		int typeChoice = this.getInputChoice(0, noTypeChoice-1);
 		
-		System.out.println("Movie Rating: ");
+		System.out.println("Movie rating: ");
 		int noRatingChoice = MovieRating.printChoices();
 		int ratingChoice = this.getInputChoice(0, noRatingChoice-1);
 		
 		System.out.println("Enter synopsis: ");
 		String synopsis = this.getInputString();
 		
-		System.out.println("Enter Director:");
+		System.out.println("Enter director: ");
 		String director = this.getInputString();
 		
-		System.out.println("Enter Cast:");
+		System.out.println("Enter cast: ");
 		ArrayList<String> cast = this.getInputListString();
 		
-		System.out.println("Enter duration in Minutes:");
+		System.out.println("Enter duration in minutes: ");
 		int duration = this.getInputInteger();
 		
 		this.runCreate(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);

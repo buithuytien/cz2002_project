@@ -18,28 +18,28 @@ public class ShowtimesCRUDUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("Choose Cineplex:");
+		System.out.println("Choose a cineplex:");
 		CineplexCRUD<Cineplex> cineplexCRUD = new CineplexCRUD<>(Cineplex.class);
 		int noCineplexChoice = cineplexCRUD.printChoices();
 		int cineplexChoice = this.getInputChoice(0, noCineplexChoice-1);
 		
-		System.out.println("Choose Cinema");
+		System.out.println("Choose a cinema:");
 		Cineplex cineplex = cineplexCRUD.getCineplex(cineplexChoice);
 		CinemaCRUD<Cinema> cinemaCRUD = cineplex.getCinemaCRUD();
 		int noCinemaChoice = cinemaCRUD.printChoices();
 		int cinemaChoice = this.getInputChoice(0, noCinemaChoice-1);
 		Cinema cinema = cinemaCRUD.getCinema(cinemaChoice);
 		
-		System.out.println("Choose Preview and Now Showing Movies");
+		System.out.println("Choose a movie:");
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
 		int noMovieChoice = movieCRUD.printChoicesForShowtimes();
 		int movieChoice = this.getInputChoice(0, noMovieChoice-1);
 		Movie movie = movieCRUD.getMovie(movieChoice);
 		
-		System.out.println("Enter Showing Date");
+		System.out.println("Enter desired showing date:");
 		String dateStr = this.getInputDate();
 		
-		System.out.println("Enter Movie Start Time:");
+		System.out.println("Enter desired movie start time:");
 		String timeStr = this.getInputTime(dateStr, movie.getDuration());
 		
 		this.run(cineplex, dateStr, cinema, timeStr, movie);
@@ -50,20 +50,20 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		String input;
 		try {
 			while (true) {
-				System.out.println("Enter Time in " + DateTimeHelper.TIME_FORMAT);
+				System.out.println("Enter time in " + DateTimeHelper.TIME_FORMAT);
 				input = this.getInputString();
 				if (DateTimeHelper.isToday(dateStr)) {
 					if (!DateTimeHelper.checkAfterMinutesFromNow(input)) {
-						System.out.println("Input time 15 minutes after current time");
+						System.out.println("Input time is 15 minutes after current time!");
 						continue;
 					}
 				} 
 				if (DateTimeHelper.getMinutesTillMidnight(input)>movieDuration)
 					break;
-				System.out.println("Cannot pass midnight");
+				System.out.println("Movie showing cannot be past midnight!");
 			}
 		} catch (Exception e) {
-			System.out.println("Wrong Input! Try again");
+			System.out.println("Wrong input! Please try again!");
 			return this.getInputTime(dateStr, movieDuration);
 		}
 		return input;
@@ -73,7 +73,7 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		ShowtimesCRUD<Showtimes> crud = new ShowtimesCRUD<>(Showtimes.class, cineplex.getId(), dateStr);
 		Showtimes showtimes = new Showtimes(cinema, timeStr, movie);
 		crud.create(showtimes);
-		System.out.println("Create Showtimes Successfully");
+		System.out.println("Showtime created successfully!");
 		this.goBack();
 	}
 }

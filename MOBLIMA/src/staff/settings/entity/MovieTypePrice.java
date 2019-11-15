@@ -44,7 +44,7 @@ public class MovieTypePrice extends Price {
 	@Override
 	public String toString() {
 		StringBuilder st = new StringBuilder();
-		st.append("MovieType - ");
+		st.append("Movie type - ");
 		st.append(this.movieType.getName());
 		st.append("->");
 		st.append("Price - ");

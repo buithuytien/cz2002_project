@@ -10,10 +10,10 @@ public class LoginUI extends AbstractUI {
 	@Override
 	public void start() {
 		System.out.println();
-		System.out.println("You are?");
-		System.out.println("0 : User");
-		System.out.println("1 : Staff");
-		System.out.println("2 : Exit");
+		System.out.println("Welcome to MOBLIMA! Are you a staff or a user?");
+		System.out.println("0 : User Login");
+		System.out.println("1 : Staff Login");
+		System.out.println("2 : Exit MOBLIMA");
 		int choice = getInputChoice(0,2);
 		
 		run(choice);

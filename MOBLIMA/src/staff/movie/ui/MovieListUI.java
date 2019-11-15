@@ -14,8 +14,8 @@ public class MovieListUI extends AbstractUI {
 		// TODO Auto-generated method stub
 		System.out.println();
 		System.out.println("0 : List all movies");
-		System.out.println("1 : Search for movie by name");
-		System.out.println("2 : Back");
+		System.out.println("1 : Search for movies by name");
+		System.out.println("2 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 2);
 		

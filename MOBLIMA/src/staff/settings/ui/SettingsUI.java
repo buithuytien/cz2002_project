@@ -12,9 +12,9 @@ public class SettingsUI extends AbstractUI {
 	public void start() {
 		// TODO Auto-generated method stub
 		System.out.println();
-		System.out.println("0 : Change Price");
-		System.out.println("1 : Update Public Holiday");
-		System.out.println("2 : Back");
+		System.out.println("0 : Change movie prices");
+		System.out.println("1 : Update public holidays");
+		System.out.println("2 : Back to previous menu");
 		
 		int choice = this.getInputChoice(0, 3);
 		
