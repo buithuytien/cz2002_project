@@ -6,12 +6,31 @@ import java.util.Scanner;
 
 import util.DateTimeHelper;
 
+/**
+ * abstract class AbstractUI
+ * composition of AbstractCRUD and AbstractEntity
+ * @author Ronald
+ *
+ */
 public abstract class AbstractUI {
+	/**
+	 * to save the previous menu accessed
+	 */
 	private AbstractUI prevUI;
 	
-	
+	/**
+	 * abstract method to initialize selected menu
+	 * to be override
+	 */
 	public abstract void start();
 	
+	/**
+	 * method to get the input of the user
+	 * to choose the option given in the UI menu
+	 * @param lowerBound
+	 * @param upperBound
+	 * @return the user's input integer in a given range
+	 */
 	public int getInputChoice(int lowerBound, int upperBound) {
 		Scanner sc = new Scanner(System.in);
 		int choice;
@@ -34,6 +53,11 @@ public abstract class AbstractUI {
 		return choice;
 	}
 	
+	/**
+	 * method for user to input a string 
+	 * depending on the requirements of the UI menu
+	 * @return the user's input string
+	 */
 	public String getInputString() {
 		Scanner sc = new Scanner(System.in);
 		String input;
@@ -47,6 +71,11 @@ public abstract class AbstractUI {
 		return input;
 	}
 	
+	/**
+	 * method for user to input a double
+	 * depending on the requirements of the UI menu
+	 * @return the user's input double
+	 */
 	public double getInputDouble() {
 		double input;
 		Scanner sc = new Scanner(System.in);
@@ -59,6 +88,11 @@ public abstract class AbstractUI {
 		return input;
 	}
 	
+	/**
+	 * method for user to input an integer
+	 * depending on the requirements of the UI menu
+	 * @return the user's input integer
+	 */
 	public int getInputInteger() {
 		Scanner sc = new Scanner(System.in);
 		int input;
@@ -72,6 +106,11 @@ public abstract class AbstractUI {
 		return input;
 	}
 	
+	/**
+	 * method for user to input an array of strings
+	 * depending on the requirements of the UI menu
+	 * @return the user's input of strings in an array
+	 */
 	public ArrayList<String> getInputListString() {
 		String terminate = "QUIT";
 		ArrayList<String> arr = new ArrayList<>();
@@ -89,6 +128,11 @@ public abstract class AbstractUI {
 		return arr;
 	}
 	
+	/**
+	 * method for user to input the date
+	 * depending on the requirements of the UI menu
+	 * @return the user's input of date
+	 */
 	public String getInputDate() {
 		String dateStr;
 		try {
@@ -107,6 +151,9 @@ public abstract class AbstractUI {
 		return dateStr;
 	}
 	
+	/**
+	 * method to return to previous menu
+	 */
 	public void goBack() {
 		if (this.prevUI == null) {
 			System.exit(1);
@@ -114,18 +161,35 @@ public abstract class AbstractUI {
 		this.prevUI.start();
 	}
 	
+	/**
+	 * method to stop the program
+	 */
 	public void exit() {
 		System.exit(0);
 	}
 	
+	/**
+	 * accessor method to get the previous menu
+	 * @return the previous display menu's class
+	 */
 	public AbstractUI getPrevUI() {
 		return this.prevUI;
 	}
 	
+	/**
+	 * mutator method to set the previous menu
+	 * @param itemUI
+	 */
 	public void setPrevUI(AbstractUI itemUI) {
 		this.prevUI = itemUI;
 	}
 	
+	/**
+	 * method to save the current menu as previous menu
+	 * and display the next menu
+	 * depending on the choice entered by user
+	 * @param nextUI
+	 */
 	public void intent(AbstractUI nextUI) {
 		nextUI.setPrevUI(this);
 		nextUI.start();

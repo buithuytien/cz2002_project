@@ -10,6 +10,11 @@ import entity.Cineplex;
 import entity.Movie;
 import entity.Showtimes;
 
+/**
+ * ShowtimesListUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class ShowtimesListUI extends AbstractUI {
 
 	@Override
@@ -28,6 +33,12 @@ public class ShowtimesListUI extends AbstractUI {
 		this.run(cineplex.getId(), dateStr);		
 	}
 
+	/**
+	 * method for user to view and select the available showtimes for
+	 * the movies of their choice
+	 * @param cineplexId
+	 * @param dateStr
+	 */
 	public void run(int cineplexId, String dateStr) {
 		ShowtimesCRUD<Showtimes> showtimesCRUD = new ShowtimesCRUD<>(Showtimes.class, cineplexId, dateStr);
 		System.out.println("All available showtimes:");

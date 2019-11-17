@@ -12,23 +12,76 @@ import enums.MovieType;
 import enums.ShowingStatus;
 import util.TextDB;
 
+/**
+ * Movie inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class Movie extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	private static final String ARR_SEPERATOR = ",";
 	public static String directoryName="";
 	public static String fileName="Movie.txt";
 	
+	/**
+	 * the movie id
+	 */
 	private int id;
+	/**
+	 * title of the movie
+	 */
 	private String title;
+	/**
+	 * status of the movie, whether it is showing on this cinema or not
+	 */
 	private ShowingStatus status;
+	/**
+	 * type of movie, categorised into the enumerations from MovieType class
+	 */
 	private MovieType type;
+	/**
+	 * the rating of the movie based on user's rating
+	 */
 	private MovieRating movieRating;
+	/**
+	 * a synopsis of the movie
+	 */
 	private String synopsis;
+	/**
+	 * name of the director
+	 */
 	private String director;
+	/**
+	 * number of tickets sold
+	 */
 	private int ticketSales=0;
+	/**
+	 * array of the names of the cast
+	 */
 	private ArrayList<String> cast;
+	/**
+	 * array of the reviews by the user's
+	 */
 	private ArrayList<Review> reviewList;
+	/**
+	 * duration of the movie
+	 */
 	private int duration;
 	
+	/**
+	 * constructor
+	 * @param id
+	 * @param title
+	 * @param statusChoice
+	 * @param typeChoice
+	 * @param ratingChoice
+	 * @param synopsis
+	 * @param director
+	 * @param cast
+	 * @param duration
+	 */
 	public Movie(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
 			String synopsis, String director, ArrayList<String> cast, int duration) {
 		this.id = id;
@@ -43,6 +96,10 @@ public class Movie extends AbstractEntity {
 		this.duration = duration;
 	}
 	
+	/**
+	 * constructor to store the input values in a text file
+	 * @param raw
+	 */
 	public Movie(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -75,6 +132,11 @@ public class Movie extends AbstractEntity {
 		this.duration = Integer.valueOf(durationStr);
 	}
 	
+	/**
+	 * method to obtain the ratings of the movie
+	 * then calculated to obtain the average rating of the movie under ReviewCRUD class
+	 * @return the double value of the average rating
+	 */
 	public double computeRating() {
 		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
 		return reviewCRUD.computeRating();
@@ -157,6 +219,10 @@ public class Movie extends AbstractEntity {
 		return st.toString();
 	}
 	
+	/**
+	 * method to merge all the attributes of a movie to a single string
+	 * @return string of all the attributes
+	 */
 	public String toDetailedString() {
 		StringBuilder st = new StringBuilder();
 		st.append("ID - ");
@@ -210,66 +276,130 @@ public class Movie extends AbstractEntity {
 		return ((Movie)object).getId() == this.id;
 	}
 	
+	/**
+	 * accessor method to get the movie id
+	 * @return movie id
+	 */
 	public int getId() {
 		return this.id;
 	}
 	
+	/**
+	 * accessor method to get the movie title
+	 * @return movie title
+	 */
 	public String getTitle() {
 		return this.title;
 	}
 	
+	/**
+	 * mutator method to set the title of the movie
+	 * @param title
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
+	/**
+	 * accessor method to get the showing status of the movie, under enumeration of ShowingStatus class
+	 * @return class of categories of the showing status
+	 */
 	public ShowingStatus getStatus() {
 		return this.status;
 	}
 	
+	/**
+	 * mutator method to set the showing status of the movie, under enumeration of ShowingStatus class
+	 * @param statusChoice
+	 */
 	public void setStatus(int statusChoice) {
 		this.status = ShowingStatus.values()[statusChoice];
 	}
 	
+	/**
+	 * accessor method to get the type of movie, under enumerations of MovieType class
+	 * @return class of categories of the movie type
+	 */
 	public MovieType getType() {
 		return this.type;
 	}
 	
+	/**
+	 * mutator method to set the type of movie
+	 * @param typeChoice
+	 */
 	public void setType(int typeChoice) {
 		this.type = MovieType.values()[typeChoice];
 	}
 	
+	/**
+	 * mutator method to set the rating of the movie
+	 * @param movieRatingChoice
+	 */
 	public void setMovieRating(int movieRatingChoice) {
 		this.movieRating = MovieRating.values()[movieRatingChoice];
 	}
 	
+	/**
+	 * mutator method to set the synopsis of the movie
+	 * @param synopsis
+	 */
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
 	
+	/**
+	 * mutator method to set the name of the director
+	 * @param director
+	 */
 	public void setDirector(String director) {
 		this.director = director;
 	}
 	
+	/**
+	 * mutator method to set the names of the cast of movie
+	 * @param cast
+	 */
 	public void setCast(ArrayList<String> cast) {
 		this.cast = cast;
 	}
 	
+	/**
+	 * accessor method to get the duration of the movie
+	 * @return integer value of the duration of the movie
+	 */
 	public int getDuration() {
 		return this.duration;
 	}
 	
+	/**
+	 * mutator method to set the duration of the movie
+	 * @param duration
+	 */
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
 	
+	/**
+	 * accessor method to get the number of tickets sold
+	 * @return integer value of the number of tickets sold
+	 */
 	public int getTicketSales() {
 		return this.ticketSales;
 	}
 	
+	/**
+	 * method to update the number of tickets sold
+	 * @param sales
+	 */
 	public void updateTicketSales(int sales) {
 		this.ticketSales += sales;
 	}
 	
+	/**
+	 * method to get the file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		String path = directoryName + "/" + fileName;
 		File file = new File(Cache.DBPath+path);
@@ -283,38 +413,69 @@ public class Movie extends AbstractEntity {
 		return path;
 	}
 	
+	/**
+	 * method that return true if the movie is no longer showing in the cinema
+	 * @return True or False
+	 */
 	public boolean isEndShowing() {
 		return this.status == ShowingStatus.END_SHOWING;
 	}
 	
+	/**
+	 * method that return true if the movie is not out in the cinema yet
+	 * @return True or False
+	 */
 	public boolean isComingSoon() {
 		return this.status == ShowingStatus.COMING_SOON;
 	}
 	
+	/**
+	 * accessor method to get the review of the movie
+	 * @return review object 
+	 */
 	public ReviewCRUD<Review> getReviewCRUD() {
 		return new ReviewCRUD<Review>(Review.class, this.id);
 	}
 	
+	/**
+	 * method that return true of there exists a review of the movie
+	 * @return True or False
+	 */
 	public boolean checkReviewExist() {
 		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
 		return reviewCRUD.checkUsernameExist();
 	}
 	
+	/**
+	 * accessor method to get the array of reviews of a movie
+	 * @return list of review objects
+	 */
 	public ArrayList<Review> getReviewList() {
 		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
 		return reviewCRUD.getReviewList();
 	}
 	
+	/**
+	 * method to add reviews to a particular movie
+	 * @param review
+	 * @param rating
+	 */
 	public void addReview(String review, int rating) {
 		ReviewCRUD<Review> reviewCRUD = this.getReviewCRUD();
 		reviewCRUD.createReview(review, rating);
 		this.reviewList = reviewCRUD.getReviewList();
 	}
 	
+	/**
+	 * method to print all the attributes of the movie
+	 */
 	public void printMovieDetail() {
 		System.out.println(this.toDetailedString());
 	}
 	
+	/**
+	 * method to print the list of reviews of a particular movie
+	 */
 	public void printReview() {
 		for (int i=0; i<this.reviewList.size(); ++i) {
 			System.out.println(this.reviewList.get(i).toString());

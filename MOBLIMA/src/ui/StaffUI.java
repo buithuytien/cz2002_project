@@ -1,9 +1,16 @@
 package ui;
 
 import cache.Cache;
-
+/**
+ * StaffUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class StaffUI extends AbstractUI {
 
+	/**
+	 * constructor
+	 */
 	public StaffUI() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,6 +30,13 @@ public class StaffUI extends AbstractUI {
 		this.run(choice);
 	}
 	
+	/**
+	 * method for staff user to choose movie listing, cinema showtimes or system settings to edit
+	 * choice '0' displays the menu to edit the move listings, under MovieStaffUI class 
+	 * choice '1' displays the menu to edit the cinema showtimes, under ShowtimesStaffUI class
+	 * choice '2' displays the menu to edit the pricing or public holiday, under SettingsUI
+	 * @param choice
+	 */
 	public void run(int choice) {
 		switch (choice) {
 		case 0:

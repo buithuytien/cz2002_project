@@ -8,12 +8,29 @@ import cache.Cache;
 import enums.CinemaClass;
 import util.TextDB;
 
+/**
+ * Cinema inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class Cinema extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="Cineplex";
 	public static String fileName;
 	
+	/**
+	 * cinema id
+	 */
 	private int id;
+	/**
+	 * type of CinemaClass, based on enumerations in CinemaClass class
+	 */
 	private CinemaClass type;
+	/**
+	 * the row and column values of the seating in the cinema
+	 */
 	private int row;
 	private int col;
 	
@@ -24,6 +41,13 @@ public class Cinema extends AbstractEntity {
 		this.col = col;
 	}
 	
+	/**
+	 * constructor
+	 * @param id
+	 * @param type
+	 * @param row
+	 * @param col
+	 */
 	public Cinema(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -68,26 +92,50 @@ public class Cinema extends AbstractEntity {
 		return false;
 	}
 
+	/**
+	 * accessor method to get cinema id
+	 * @return cinema id
+	 */
 	public int getId() {
 		return this.id;
 	}
 	
+	/**
+	 * accessor method to get the cinema class, based on the enumerations in CinemaClass class
+	 * @return classes of categories of the cinema
+	 */
 	public CinemaClass getCinemaClass() {
 		return this.type;
 	}
 	
+	/**
+	 * accessor method to get the row value of the seat
+	 * @return integer value for row
+	 */
 	public int getRow() {
 		return this.row;
 	}
 	
+	/**
+	 * accessor method to get the column value of the seat 
+	 * @return integer value for column
+	 */
 	public int getCol() {
 		return this.col;
 	}
 	
+	/**
+	 * method to create a text file based on the cineplexid
+	 * @param cineplexId
+	 */
 	public static void setFileName(int cineplexId) {
 		fileName = Integer.toString(cineplexId) + ".txt";
 	}
 	
+	/**
+	 * method to get file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		String path = directoryName + "/" + fileName;
 		File file = new File(Cache.DBPath+path);

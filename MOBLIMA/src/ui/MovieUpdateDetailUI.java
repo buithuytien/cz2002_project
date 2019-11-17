@@ -9,8 +9,20 @@ import enums.MovieRating;
 import enums.MovieType;
 import enums.ShowingStatus;
 
+/**
+ * MovieUpdateDetailUI inherits AbstracctUI
+ * @author Ronald
+ *
+ */
 public class MovieUpdateDetailUI extends AbstractUI {
+	/**
+	 * constructor
+	 */
 	Movie movie;
+	/**
+	 * constructor
+	 * @param movie
+	 */
 	public MovieUpdateDetailUI(Movie movie) {
 		this.movie = movie;
 	}
@@ -36,6 +48,19 @@ public class MovieUpdateDetailUI extends AbstractUI {
 		this.run(choice);
 	}
 
+	/**
+	 * method to update the details/attributes of a particular movie
+	 * choice '0' updates the title of the movie
+	 * choice '1' updates the status of the movie if it is available in the cinema or not
+	 * choice '2' updates the type of movie, based on the enumerations in MovieType class
+	 * choice '3' updates the film classification guidelines, based on the enumerations in MovieRating class
+	 * choice '4' updates the synopsis of the particular movie
+	 * choice '5' updates the name of the director
+	 * choice '6' updates the list of casts in the movie
+	 * choice '7' updates the duration of the movie
+	 * choice '8' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		if (choice==8) {
 			this.goBack();

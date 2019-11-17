@@ -18,9 +18,21 @@ import enums.DayType;
 import enums.MovieType;
 import util.DateTimeHelper;
 
+/**
+ * BookAndPurchaseUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class BookAndPurchaseUI extends AbstractUI {
+	/**
+	 * timings of the particular movie
+	 */
 	private Showtimes showtimes;
 	
+	/**
+	 * constructor
+	 * @param chosen
+	 */
 	public BookAndPurchaseUI(Showtimes chosen) {
 		this.showtimes = chosen;
 	}
@@ -43,6 +55,12 @@ public class BookAndPurchaseUI extends AbstractUI {
 		this.run(choice);
 	}
 
+	/**
+	 * method to allow user to choose whether to book a seat and purchase a ticket or not
+	 * choice '0' calls method startBook() to prompt user on the steps to purchase a ticket
+	 * choice '1' displays initial menu for users, under UserUI class
+	 * @param choice
+	 */
 	public void run(int choice) {
 		switch(choice) {
 		case 0:
@@ -54,6 +72,9 @@ public class BookAndPurchaseUI extends AbstractUI {
 		}
 	}
 	
+	/**
+	 * method for user to input their details: name, mobile number and email
+	 */
 	public void startInfo() {
 		System.out.println();
 		System.out.println("Enter your name:");
@@ -64,6 +85,10 @@ public class BookAndPurchaseUI extends AbstractUI {
 		String email = this.getInputString();
 	}
 	
+	/**
+	 * method to prompt user to input the following details:
+	 * number of tickets to purchase, which seat to book and movie-goer's age
+	 */
 	public void startBook() {
 		this.startInfo();
 		System.out.println();
@@ -89,6 +114,12 @@ public class BookAndPurchaseUI extends AbstractUI {
 		this.runBook(choice, ageArray);
 	}
 	
+	/**
+	 * method to show the total price of the user's purchase
+	 * and calls method to update number of tickets sold  as well as calculation of the price
+	 * @param sales
+	 * @param ageArray
+	 */
 	public void runBook(int sales, int[] ageArray) {
 		// Update ticket sales of movie
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
@@ -113,6 +144,13 @@ public class BookAndPurchaseUI extends AbstractUI {
 		
 	}
 	
+	/**
+	 * method to call PriceCRUD to calculate the total price of the tickets
+	 * given the variables of categories that the user chose
+	 * and to print the receipt
+	 * @param age
+	 * @return double value of the total price
+	 */
 	public double runPrice(int age) {
 		// PriceCRUD for calculating price later
 		PriceCRUD<CinemaClassPrice> cinemaClassCRUD = new PriceCRUD<>(CinemaClassPrice.class);
@@ -148,11 +186,18 @@ public class BookAndPurchaseUI extends AbstractUI {
 		return ticketPrice;
 	}
 	
+	/**
+	 * method to display initial menu for users, under UserUI
+	 */
 	public void home() {
 		UserUI ui = new UserUI();
 		ui.start();
 	}
 	
+	/**
+	 * method to get the seat that the user wants to book
+	 * @return 2d array of row and column value for the seat
+	 */
 	public int[] getInputSeat() {
 		int[] seat = new int[2];
 		String input;

@@ -4,6 +4,11 @@ import cache.Cache;
 import crud.MovieCRUD;
 import entity.Movie;
 
+/**
+ * MovieStaffUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class MovieStaffUI extends AbstractUI {
 
 	@Override
@@ -19,6 +24,13 @@ public class MovieStaffUI extends AbstractUI {
 		this.run(choice);
 	}
 	
+	/**
+	 * method to list and view movie details or edit movie listing
+	 * choice '0' enters the menu in MovieListUI class
+	 * choice '1' enters the menu in MovieCRUDUI class
+	 * choice '2' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		if (choice==2) {
 			this.goBack();
