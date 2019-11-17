@@ -1,5 +1,5 @@
-import login.entity.Account;
-import login.ui.LoginUI;
+import entity.Account;
+import ui.LoginUI;
 
 public class MOBLIMA {
 

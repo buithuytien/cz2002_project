@@ -1,6 +1,6 @@
 package cache;
 
-import base.AbstractCRUD;
+import crud.AbstractCRUD;
 
 public class Cache {
 	// Be really careful about the path (should include examples of Linux and Windows, Mac)
