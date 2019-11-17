@@ -11,6 +11,11 @@ import entity.Showtimes;
 import util.DateTimeHelper;
 import util.TextDB;
 
+/**
+ * ShowtimesCRUDUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class ShowtimesCRUDUI extends AbstractUI {
 
 	@Override
@@ -44,6 +49,13 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		this.run(cineplex, dateStr, cinema, timeStr, movie);
 	}
 
+	/**
+	 * method to get the start time of the movie
+	 * also checks if the movie carries on past 12am
+	 * @param dateStr
+	 * @param movieDuration
+	 * @return string value of time
+	 */
 	// Need to check if pass next day
 	public String getInputTime(String dateStr, int movieDuration) {
 		String input;
@@ -68,6 +80,14 @@ public class ShowtimesCRUDUI extends AbstractUI {
 		return input;
 	}
 	
+	/**
+	 * method to create a new showtime object for a movie, with the given parameters as attributes
+	 * @param cineplex
+	 * @param dateStr
+	 * @param cinema
+	 * @param timeStr
+	 * @param movie
+	 */
 	public void run(Cineplex cineplex, String dateStr, Cinema cinema, String timeStr, Movie movie ) {
 		ShowtimesCRUD<Showtimes> crud = new ShowtimesCRUD<>(Showtimes.class, cineplex.getId(), dateStr);
 		Showtimes showtimes = new Showtimes(cinema, timeStr, movie);

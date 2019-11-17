@@ -9,6 +9,11 @@ import enums.MovieRating;
 import enums.MovieType;
 import enums.ShowingStatus;
 
+/**
+ * MovieCRUDUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class MovieCRUDUI extends AbstractUI {
 
 	@Override
@@ -23,6 +28,13 @@ public class MovieCRUDUI extends AbstractUI {
 		this.run(choice);
 	}
 
+	/**
+	 * method to create or update movie
+	 * choice '0' calls method startCreate() to create movie details
+	 * choice '1' calls method startUpdate() to update movie details
+	 * choice '2' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		if (choice==2) {
 			this.goBack();
@@ -39,6 +51,9 @@ public class MovieCRUDUI extends AbstractUI {
 		}
 	}
 	
+	/**
+	 * method to get the input details which is the attributes of the movie
+	 */
 	public void startCreate() {
 		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
 		System.out.println();
@@ -80,6 +95,19 @@ public class MovieCRUDUI extends AbstractUI {
 		this.runCreate(id, title, statusChoice, typeChoice, ratingChoice, synopsis, director, cast, duration);
 	}
 	
+	/**
+	 * method to create new movie object
+	 * with the parameters as the attributes of the movie
+	 * @param id
+	 * @param title
+	 * @param statusChoice
+	 * @param typeChoice
+	 * @param ratingChoice
+	 * @param synopsis
+	 * @param director
+	 * @param cast
+	 * @param duration
+	 */
 	public void runCreate(int id, String title, int statusChoice, int typeChoice, int ratingChoice, 
 			String synopsis, String director, ArrayList<String> cast, int duration) {
 		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
@@ -87,6 +115,9 @@ public class MovieCRUDUI extends AbstractUI {
 		this.start();
 	}
 	
+	/**
+	 * method for user to choose an existing movie to update
+	 */
 	public void startUpdate() {
 		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
 		System.out.println();
@@ -96,6 +127,10 @@ public class MovieCRUDUI extends AbstractUI {
 		this.runUpdate(movieChoice);
 	}
 	
+	/**
+	 * method to update the attributes of movie selected
+	 * @param movieChoice
+	 */
 	public void runUpdate(int movieChoice) {
 		MovieCRUD crud = (MovieCRUD)Cache.getCurrentCRUD();
 		Movie movie = crud.getMovie(movieChoice);

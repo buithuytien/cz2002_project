@@ -6,15 +6,33 @@ import java.util.StringTokenizer;
 
 import util.TextDB;
 
+/**
+ * Account inherits AbstractEntity
+ * @author Ronald
+ */
 public class Account extends AbstractEntity {
+	/**
+	 * account's username 
+	 * password converted to hash
+	 */
 	private String username;
 	private String hashPass;
 	
+	/**
+	 * constructor to retrieve value of instance variable 
+	 * @param username
+	 * @param password
+	 */
 	public Account(String username, String password) {
 		this.username = username;
 		this.hashPass = hashFunction(password);
 	}
 	
+	/**
+	 * constructor to remove leading and trailing spaces
+	 * stores username password combination in text file
+	 * @param raw
+	 */
 	public Account(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -25,6 +43,11 @@ public class Account extends AbstractEntity {
 		this.hashPass = hashPass;
 	};
 	
+	/**
+	 * method to convert password to hash
+	 * @param passwordToHash
+	 * @return hashed password
+	 */
 	private String hashFunction(String passwordToHash) {
 		String generatedPassword = null;
 		
@@ -53,6 +76,11 @@ public class Account extends AbstractEntity {
 		return generatedPassword;
 	}
 	
+	/**
+	 * method to check if username and password combination is valid
+	 * @param object
+	 * @return True or False
+	 */
 	public boolean validate(Account object) {
 		if ((this.username.equals(object.getUsername())) && (this.hashPass.equals(object.getHashPass())))
 			return true;
@@ -89,10 +117,18 @@ public class Account extends AbstractEntity {
 		return false;
 	}
 
+	/**
+	 * gets the password after converted to bytes
+	 * @return string of hashed password
+	 */
 	public String getHashPass() {
 		return this.hashPass;
 	}
 	
+	/**
+	 * gets the username
+	 * @return account's username
+	 */
 	public String getUsername() {
 		return this.username;
 	}

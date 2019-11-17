@@ -10,17 +10,50 @@ import cache.Cache;
 import util.DateTimeHelper;
 import util.TextDB;
 
+/**
+ * Booking inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class Booking extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="";
 	public static String fileName="Booking.txt";
 	
+	/**
+	 * username of the account
+	 */
 	private String username;
+	/**
+	 * transaction id for payments
+	 */
 	private String TID;
+	/**
+	 * id for the movie
+	 */
 	private int movieId;
+	/**
+	 * number of tickets
+	 */
 	private int numTicket;
+	/**
+	 * date and time
+	 */
 	private LocalDate date;
 	private LocalTime time;
 	
+	/**
+	 * constructor
+	 * @param username
+	 * @param movieId
+	 * @param numTicket
+	 * @param date
+	 * @param time
+	 * @param cineplexId
+	 * @param cinemaId
+	 */
 	public Booking(String username, int movieId, int numTicket, LocalDate date, LocalTime time, int cineplexId, int cinemaId) {
 		this.username = username;
 		this.numTicket = numTicket;
@@ -30,6 +63,10 @@ public class Booking extends AbstractEntity {
 		this.TID = "0"+cineplexId+cinemaId+DateTimeHelper.convertDateToTransactionString(date)+DateTimeHelper.convertTimeToTransactionString(time);
 	}
 	
+	/**
+	 * constructor to store the attributes of the booking object in a text file
+	 * @param raw
+	 */
 	public Booking(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -89,18 +126,34 @@ public class Booking extends AbstractEntity {
 		return false;
 	}
 	
+	/**
+	 * accessor method to get the account's username
+	 * @return account's username
+	 */
 	public String getUsername() {
 		return this.username;
 	}
 	
+	/**
+	 * accessor method to get the date
+	 * @return the date
+	 */
 	public LocalDate getDate() {
 		return this.date;
 	}
 	
+	/**
+	 * accessor method to get the time
+	 * @return the time
+	 */
 	public LocalTime getTime() {
 		return this.time;
 	}
 
+	/**
+	 * method to get file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		String path = directoryName + "/" + fileName;
 		File file = new File(Cache.DBPath+path);

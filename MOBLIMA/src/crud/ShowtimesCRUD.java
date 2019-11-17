@@ -10,7 +10,20 @@ import entity.Movie;
 import entity.Showtimes;
 import util.DateTimeHelper;
 
+/**
+ * ShowtimesCRUD extends AbstractCRUD 
+ * whereby attributes from AbstractCRUD is replaced by attributes from Showtimes
+ * @author Ronald
+ *
+ * @param <T>
+ */
 public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
+	/**
+	 * constructor
+	 * @param clazz
+	 * @param cineplexId
+	 * @param dateStr
+	 */
 	public ShowtimesCRUD(Class<T> clazz, int cineplexId, String dateStr) {
 		Showtimes.setFileName(cineplexId, dateStr);
 		this.dataList = new ArrayList<T>();
@@ -18,7 +31,11 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		this.read();
 	}
 	
-	
+	/**
+	 * accessor method to get list of movies that are available for showing 
+	 * @param arr
+	 * @return list of movie names that are available for showing
+	 */
 	public ArrayList<Showtimes> getShowtimesAvailable(ArrayList<Showtimes> arr) {
 		ArrayList<Showtimes> res = new ArrayList<>();
 		if (DateTimeHelper.isToday(Showtimes.getDate())) {
@@ -32,6 +49,11 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		}
 	}
 	
+	/**
+	 * accessor method to get the list of movies that are available for showing
+	 * and sorted by name
+	 * @return list of sorted movie names that are available for showing
+	 */
 	public ArrayList<Showtimes> getShowtimesListByMovie() {
 		ArrayList<Showtimes> res = new ArrayList<>();
 		for (int i=0; i<this.getDataLength(); ++i) {
@@ -43,6 +65,12 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		return res;
 	}
 	
+	/**
+	 * method to print the list of movies that are available for showing
+	 * and sorted by movieId
+	 * @param movieId
+	 * @return list of movie names sorted by movieId that are available for showing
+	 */
 	public ArrayList<Showtimes> printShowtimesListByMovieId(int movieId) {
 		ArrayList<Showtimes> arr = this.getShowtimesListByMovie();
 		ArrayList<Showtimes> res = new ArrayList<>();
@@ -57,6 +85,10 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		return res;
 	}
 	
+	/**
+	 * method to print the list of timings that the available movies start at
+	 * and sorted by name
+	 */
 	public void printShowtimesListByMovie() {
 		ArrayList<Showtimes> res = this.getShowtimesListByMovie();
 
@@ -65,6 +97,11 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		}
 	}
 	
+	/**
+	 * method to create new array object 
+	 * that contains the sorted list available movies by name
+	 * @return list of movieId that are available for showing
+	 */
 	public ArrayList<Integer> getMovieIdList() {
 		ArrayList<Integer> movieIdList = new ArrayList<>();
 		ArrayList<Showtimes> res = this.getShowtimesListByMovie();
@@ -77,6 +114,10 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 		return movieIdList;
 	}
 	
+	/**
+	 * method to view the available seats for the particular movie showtime
+	 * @param choice
+	 */
 	public void viewSeat(int choice) {
 		ArrayList<Showtimes> res = this.getShowtimesListByMovie();
 		Showtimes obj = res.get(choice);
@@ -84,8 +125,18 @@ public class ShowtimesCRUD<T extends Showtimes> extends AbstractCRUD<T> {
 	}
 }
 
+/**
+ * SortByName realises Showtimes
+ * Showtimes can be naturally ordered
+ * @author Ronald
+ *
+ */
 class SortByName implements Comparator<Showtimes>
 {
+	/**
+	 * method to compare if a or b has a higher movieId
+	 * to be sorted
+	 */
 	public int compare(Showtimes a, Showtimes b) {
 		MovieCRUD<Movie> movieCRUD = new MovieCRUD<>(Movie.class);
 		Movie movieA = movieCRUD.getMovieById(a.getMovieId());

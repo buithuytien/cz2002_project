@@ -5,11 +5,26 @@ import java.util.StringTokenizer;
 import enums.DayType;
 import util.TextDB;
 
+/**
+ * DayPrice inherits Price
+ * @author Ronald
+ *
+ */
 public class DayPrice extends Price {
+	/**
+	 * methods to declare strings
+	 */
 	public static String directoryName="Price";
 	public static String fileName="DayPrice.txt";
+	/**
+	 * initializing the different enumerations in DayType
+	 */
 	private DayType dayType;
 	
+	/**
+	 * constructor to store the dayType and price of each type of day in a text file
+	 * @param raw
+	 */
 	public DayPrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -57,6 +72,10 @@ public class DayPrice extends Price {
 		return true;
 	}
 
+	/**
+	 * method to get file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

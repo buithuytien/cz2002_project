@@ -6,6 +6,11 @@ import cache.Cache;
 import crud.MovieCRUD;
 import entity.Movie;
 
+/**
+ * MovieListUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class MovieListUI extends AbstractUI {
 
 	@Override
@@ -21,6 +26,13 @@ public class MovieListUI extends AbstractUI {
 		this.run(choice);
 	}
 	
+	/**
+	 * method to list all movies available or to search for movie by its name
+	 * choice '0' prints the list of movies available in the cinema
+	 * choice '1' searches for the movie by the name input
+	 * choice '2' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		
 		MovieCRUD<Movie> crud = (MovieCRUD)Cache.getCurrentCRUD();
@@ -40,6 +52,9 @@ public class MovieListUI extends AbstractUI {
 		}
 	}
 	
+	/**
+	 * method for user to input movie name to search
+	 */
 	public void startSearch() {
 		System.out.println();
 		System.out.println("Enter your search string:");
@@ -48,6 +63,10 @@ public class MovieListUI extends AbstractUI {
 		this.runSearch(search);
 	}
 	
+	/**
+	 * method to search for the movie based on the name input by user
+	 * @param search
+	 */
 	public void runSearch(String search) {
 		MovieCRUD<Movie> crud = (MovieCRUD)Cache.getCurrentCRUD();
 		ArrayList<Movie> searchResult = crud.getSearchResult(search);

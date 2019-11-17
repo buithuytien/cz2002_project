@@ -5,8 +5,15 @@ import crud.AccountCRUD;
 import entity.Account;
 import entity.UserAccount;
 
+/**
+ * LoginValidateUI inherits AbstractUI
+ * @author Ronald
+ */
 public class LoginValidateUI extends AbstractUI {
 
+	/**
+	 * constructor
+	 */
 	public LoginValidateUI() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,6 +31,13 @@ public class LoginValidateUI extends AbstractUI {
 		this.run(username, password);
 	}
 	
+	/**
+	 * check username and password details
+	 * if username and password is valid, login successful
+	 * else print "wrong login info" and return to LoginCRUDUI display
+	 * @param username
+	 * @param password
+	 */
 	public void run(String username, String password) {
 		AccountCRUD crud = (AccountCRUD) Cache.getCurrentCRUD();
 		try {

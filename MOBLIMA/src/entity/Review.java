@@ -7,21 +7,48 @@ import java.util.StringTokenizer;
 import cache.Cache;
 import util.TextDB;
 
+/**
+ * Review inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class Review extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="Review";
 	public static String fileName;
 //	private int id;
 //	private int movieId;
+	/**
+	 * username of the user's account
+	 */
 	private String username;
+	/**
+	 * review of the user on a particular movie
+	 */
 	private String review;
+	/**
+	 * ratings of the particular movie 
+	 */
 	private int rating;
 	
+	/**
+	 * constructor
+	 * @param username
+	 * @param review
+	 * @param rating
+	 */
 	public Review(String username, String review, int rating) {
 		this.username = username;
 		this.review = review;
 		this.rating = rating;
 	}
 	
+	/**
+	 * constructor to store the user's username, review of the movie and the rating given in a text file
+	 * @param raw
+	 */
 	public Review(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -72,6 +99,10 @@ public class Review extends AbstractEntity {
 		return st.toString();
 	}
 
+	/**
+	 * method that return true if the username exists in the database of usernames
+	 * @return True or False
+	 */
 	public boolean checkUsernameExist() {
 		return this.username.equals(Cache.getUsername());
 	}
@@ -87,14 +118,26 @@ public class Review extends AbstractEntity {
 //		return this.id;
 //	}
 
+	/**
+	 * accessor method to get the rating of the movie
+	 * @return integer value of the rating
+	 */
 	public int getRating() {
 		return this.rating;
 	}
 	
+	/**
+	 * method to create a text file named after the movie
+	 * @param movieId
+	 */
 	public static void setFileName(int movieId) {
 		fileName = Integer.toString(movieId) + ".txt";
 	}
 	
+	/**
+	 * method to get the file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		String path = directoryName + "/" + fileName;
 		File file = new File(Cache.DBPath+path);

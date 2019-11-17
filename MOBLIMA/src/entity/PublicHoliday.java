@@ -10,19 +10,42 @@ import java.util.StringTokenizer;
 import util.DateTimeHelper;
 import util.TextDB;
 
+/**
+ * PublicHoliday inherits AbstractEntity
+ * @author Ronald
+ *
+ */
 public class PublicHoliday extends AbstractEntity {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="";
 	public static String fileName="PublicHoliday.txt";
+	/**
+	 * date of the holiday
+	 */
 	private LocalDate date;
+	/**
+	 * name of the holiday
+	 */
 	private String name;
 	
-	
+	/**
+	 * constructor 
+	 * converts date to a string 
+	 * @param dateStr
+	 * @param name
+	 */
 	public PublicHoliday(String dateStr, String name) {
 		this.date = DateTimeHelper.convertStringToDate(dateStr);
 		
 		this.name = name;
 	}
 	
+	/**
+	 * constructor method to store the date and name of the holiday in a text file
+	 * @param raw
+	 */
 	public PublicHoliday(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -41,6 +64,12 @@ public class PublicHoliday extends AbstractEntity {
 			return -1;
 	}
 
+	/**
+	 * method to check if input date matches current date
+	 * returns true if the date matches
+	 * @param date
+	 * @return True or False
+	 */
 	public boolean match(LocalDate date) {
 		return this.date.equals(date);
 	}
@@ -69,10 +98,18 @@ public class PublicHoliday extends AbstractEntity {
 		return false;
 	}
 
+	/**
+	 * accessor method to get the date of the saved holiday
+	 * @return date
+	 */
 	public LocalDate getDate() {
 		return this.date;
 	}
 	
+	/**
+	 * method to get file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

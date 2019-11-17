@@ -6,6 +6,11 @@ import entity.PublicHoliday;
 import util.DateTimeHelper;
 import util.TextDB;
 
+/**
+ * PublicHolidayCRUDUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class PublicHolidayCRUDUI extends AbstractUI {
 	
 	@Override
@@ -21,6 +26,14 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		this.run(choice);
 	}
 	
+	/**
+	 * method to create, list or delete the public holiday date and name
+	 * choice '0' creates a public holiday with the input of the date and name
+	 * choice '1' lists the saved public holidays
+	 * choice '2' deletes the data of the saved public holiday
+	 * choice '3' returns to the previous menu
+	 * @param choice
+	 */
 	public void run (int choice) {
 		if (choice==3)
 			this.goBack();
@@ -38,6 +51,10 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		}
 	}
 	
+	/**
+	 * method to get the input of date and name
+	 * to create the the public holiday
+	 */
 	public void startCreate() {
 		System.out.println();
 		System.out.println("Enter the date in format " + DateTimeHelper.DATE_FORMAT);
@@ -48,6 +65,11 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		this.runCreate(dateStr, name);
 	}
 
+	/**
+	 * method to use the input of date and time to create a new public holiday object
+	 * @param dateStr
+	 * @param name
+	 */
 	public void runCreate(String dateStr, String name) {
 		PublicHolidayCRUD crud = (PublicHolidayCRUD) Cache.getCurrentCRUD();
 		PublicHoliday obj = crud.createPublicHoliday(dateStr, name);
@@ -60,6 +82,9 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		this.start();
 	}
 	
+	/**
+	 * method to allow user to choice which public holiday object to delete
+	 */
 	public void startDelete() {
 		System.out.println();
 		int noChoice = Cache.getCurrentCRUD().printChoices();
@@ -69,6 +94,10 @@ public class PublicHolidayCRUDUI extends AbstractUI {
 		this.runDelete(choice);
 	}
 	
+	/**
+	 * method to delete the public holiday object 
+	 * @param choice
+	 */
 	public void runDelete(int choice) {
 		PublicHolidayCRUD crud = (PublicHolidayCRUD) Cache.getCurrentCRUD();
 		crud.deleteByIndex(choice);

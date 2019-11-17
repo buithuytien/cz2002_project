@@ -5,11 +5,26 @@ import java.util.StringTokenizer;
 import enums.CinemaClass;
 import util.TextDB;
 
+/**
+ * CinemaClassPrice inherits Price
+ * @author Ronald
+ *
+ */
 public class CinemaClassPrice extends Price {
+	/**
+	 * method to declare strings
+	 */
 	public static String directoryName="Price";
 	public static String fileName="CinemaClassPrice.txt";
+	/**
+	 * initializing the different enumerations in CinemaClass
+	 */
 	private CinemaClass cinemaClass;
 	
+	/**
+	 * constructor to store the prices of each category of cinema class in a text file
+	 * @param raw
+	 */
 	public CinemaClassPrice(String raw) {
 		StringTokenizer star = new StringTokenizer(raw, TextDB.SEPERATOR);
 		
@@ -59,6 +74,10 @@ public class CinemaClassPrice extends Price {
 		return true;
 	}
 
+	/**
+	 * method to get file path
+	 * @return the file path
+	 */
 	public static String getFilePath() {
 		return directoryName + "/" + fileName;
 	}

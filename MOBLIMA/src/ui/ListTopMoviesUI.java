@@ -3,6 +3,11 @@ package ui;
 import crud.MovieCRUD;
 import entity.Movie;
 
+/**
+ * ListTopMoviesUI inherits AbstractUI
+ * @author Ronald
+ *
+ */
 public class ListTopMoviesUI extends AbstractUI {
 
 	@Override
@@ -17,6 +22,13 @@ public class ListTopMoviesUI extends AbstractUI {
 		this.run(choice);
 	}
 	
+	/**
+	 * method to allow user to display top 5 movies either by overall ratings or number of tickets sold
+	 * choice '0' prints the top 5 movies by overall ratings
+	 * choice '1' prints the top 5 movies by number of tickets sold
+	 * choice '2' returns to the previous menu
+	 * @param choice
+	 */
 	public void run(int choice) {
 		if (choice==2) {
 			this.goBack();

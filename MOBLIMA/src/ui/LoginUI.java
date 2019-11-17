@@ -5,6 +5,10 @@ import crud.AccountCRUD;
 import entity.StaffAccount;
 import entity.UserAccount;
 
+/**
+ * LoginUI inherits from AbstractUI
+ * @author Ronald
+ */
 public class LoginUI extends AbstractUI {
 	@Override
 	public void start() {
@@ -18,6 +22,12 @@ public class LoginUI extends AbstractUI {
 		run(choice);
 	}
 	
+	/**
+	 * choice '0' to create UserAccount object
+	 * choice '1' to create StaffAccount object
+	 * choice '2' to exit program
+	 * @param choice The user's input
+	 */
 	public void run(int choice) {
 		switch(choice) {
 			case 0:
@@ -32,7 +42,9 @@ public class LoginUI extends AbstractUI {
 				this.exit();
 				break;
 		}
-		
+		/**
+		 * to call LoginCRUDUI class
+		 */
 		this.intent(new LoginCRUDUI());
 				
 	}
