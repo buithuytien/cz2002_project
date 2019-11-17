@@ -215,7 +215,7 @@ public class Showtimes extends AbstractEntity {
 	}
 	
 	/**
-	 * method to call the method from Seat class to book an avaiable seat
+	 * method to call the method from Seat class to book an available seat
 	 * @param row
 	 * @param col
 	 */

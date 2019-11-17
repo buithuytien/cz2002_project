@@ -20,8 +20,8 @@ import util.DateTimeHelper;
 
 /**
  * BookAndPurchaseUI inherits AbstractUI
+ * UI for book and purchase movie tickets
  * @author Ronald
- *
  */
 public class BookAndPurchaseUI extends AbstractUI {
 	/**

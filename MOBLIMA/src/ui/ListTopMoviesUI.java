@@ -5,6 +5,7 @@ import entity.Movie;
 
 /**
  * ListTopMoviesUI inherits AbstractUI
+ * UI for list top 5 movies
  * @author Ronald
  *
  */
