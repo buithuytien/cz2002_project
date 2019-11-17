@@ -12,7 +12,6 @@ import entity.Showtimes;
 
 /**
  * ShowtimesListUI inherits AbstractUI
- * UI for listing all the showtimes
  * @author Ronald
  *
  */

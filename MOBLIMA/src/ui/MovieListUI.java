@@ -8,7 +8,6 @@ import entity.Movie;
 
 /**
  * MovieListUI inherits AbstractUI
- * UI for list and searh movies
  * @author Ronald
  *
  */

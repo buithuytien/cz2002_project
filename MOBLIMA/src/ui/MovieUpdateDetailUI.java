@@ -11,7 +11,6 @@ import enums.ShowingStatus;
 
 /**
  * MovieUpdateDetailUI inherits AbstracctUI
- * UI for update movie details
  * @author Ronald
  *
  */

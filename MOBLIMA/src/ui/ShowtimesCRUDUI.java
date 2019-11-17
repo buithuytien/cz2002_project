@@ -13,7 +13,6 @@ import util.TextDB;
 
 /**
  * ShowtimesCRUDUI inherits AbstractUI
- * UI for create showtimes in staff mode
  * @author Ronald
  *
  */

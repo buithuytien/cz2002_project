@@ -6,7 +6,6 @@ import entity.Movie;
 
 /**
  * MovieStaffUI inherits AbstractUI
- * UI for staff's behaviors
  * @author Ronald
  *
  */
