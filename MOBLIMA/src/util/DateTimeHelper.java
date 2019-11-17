@@ -12,7 +12,7 @@ import enums.DayType;
 
 public class DateTimeHelper {
 	public static final String DATE_FORMAT="d-MM-yyyy";
-	public static final String TIME_FORMAT="HH:mm";
+	public static final String TIME_FORMAT="HH-mm";
 	public static final String TRANSACTION_DATE_FORMAT="yyyyMMd";
 	public static final String TRANSACTION_TIME_FORMAT="HHmm";
 	
