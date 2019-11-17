@@ -4,6 +4,7 @@ import entity.Movie;
 
 /**
  * MovieDetailUI inherits AbstractUI
+ * UI for view details of the movie and add & view movie reviews
  * @author Ronald
  *
  */

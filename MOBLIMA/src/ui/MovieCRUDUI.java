@@ -11,6 +11,7 @@ import enums.ShowingStatus;
 
 /**
  * MovieCRUDUI inherits AbstractUI
+ * UI for create and update movies
  * @author Ronald
  *
  */

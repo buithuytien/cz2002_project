@@ -6,6 +6,7 @@ import entity.Account;
 
 /**
  * LoginCreateUI inherits AbstractUI
+ * UI for create Login inputs 
  * @author Ronald
  */
 public class LoginCreateUI extends AbstractUI {

@@ -9,7 +9,7 @@ public enum MovieRating {
 	PG("PG"), G("G"), R("R"), PG_13("PG-13"), NC_17("NC-17");
 	
 	/**
-	 * classifications of the movie ratings, showin in the enumerations
+	 * classifications of the movie ratings, shown in the enumerations
 	 */
 	private String nameStr;
 	
