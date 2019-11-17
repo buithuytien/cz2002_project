@@ -1,0 +1,2 @@
+staff1|Amazing movie, absolutely loved it! Ryan reynolds is such a funny actor.|5
+user1|Was mediocre, a lot of the humor seemed forced.|2

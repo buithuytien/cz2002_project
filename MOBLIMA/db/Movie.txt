@@ -1,3 +1,11 @@
-2|Star War|NOW_SHOWING|THREE_D|NC_17|Nice|Nothan|0|James,Corden|150
-3|The End|NOW_SHOWING|NORMAL|G|End|Mr Awesome|0|Nhan|90
-1|Terminator|PREVIEW|NORMAL|PG|Nice|Nhan|0|Nhan Awesome,Nhan even more awesome|120
+11|A Bug's Life|NOW_SHOWING|NORMAL|PG|Flik (Dave Foley) is an inventive ant who's always messing things up for his colony.|John Lasseter|2|Dave Foley|121
+8|Avengers:Endgame|NOW_SHOWING|THREE_D|PG|The avengers must figure out a way to bring back their vanquished allies for an epic showdown with Thanos.|Anthony Russo|5|Robert Downey Jr|181
+7|Deadpool|NOW_SHOWING|NORMAL|NC_17|Wade Wilson (Ryan Reynolds) is a former Special Forces operative who now works as a mercenary.|Tim Miller|10|Ryan Reynolds|108
+6|Joker|NOW_SHOWING|NORMAL|NC_17|Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City.|Todd Phillips|4|Arthur Fleck|122
+1|Star War|NOW_SHOWING|THREE_D|NC_17|Nice|Nothan|2|James,Corden|150
+2|The End|NOW_SHOWING|NORMAL|G|End|Mr Awesome|3|Nhan|90
+9|SHAZAM|PREVIEW|NORMAL|G|We all have a superhero inside us, it just takes a bit of magic to bring it out.|David Sandberg|0|Zachary Levi|131
+3|Terminator|PREVIEW|NORMAL|PG|Nice|Nhan|0|Nhan Awesome,Nhan even more awesome|120
+5|Sonic the Hedgehog|COMING_SOON|NORMAL|PG|Sonic goes on an adventure to discover his true identity.|Ben Stiller|0|Patrick Casey,Josh Miller|87
+10|Spiderman:Far From Home|COMING_SOON|NORMAL|PG|Peter Parker returns in Spider-Man: Far From Home, the next chapter of the Spider-Man: Homecoming series!|Jon Watts|0|Tom Holland|142
+4|Toy Story|COMING_SOON|NORMAL|PG|Join Woody and friends on an exciting journey!|Christopher Nolan|0|Jimmy Fallon|130
